@@ -1,0 +1,63 @@
+﻿  SettingTimer.cpp
+d:\github\repository\algorithm\algorithm\settingstimer\settingtimer\settingtimer\timer.h(74): error C2039: “type”: 不是“std::result_of<callable (const char (&)[6])>”的成员
+          with
+          [
+              callable=void (__cdecl &)(std::string &)
+          ]
+  d:\github\repository\algorithm\algorithm\settingstimer\settingtimer\settingtimer\timer.h(74): note: 参见“std::result_of<callable (const char (&)[6])>”的声明
+          with
+          [
+              callable=void (__cdecl &)(std::string &)
+          ]
+  d:\github\repository\algorithm\algorithm\settingstimer\settingtimer\settingtimer\settingtimer.cpp(41): note: 参见对正在编译的函数 模板 实例化“void Timer::SyncWait<void(__cdecl &)(std::string &),const char(&)[6]>(int,callable,const char (&)[6])”的引用
+          with
+          [
+              callable=void (__cdecl &)(std::string &)
+          ]
+d:\github\repository\algorithm\algorithm\settingstimer\settingtimer\settingtimer\timer.h(74): error C2146: 语法错误: 缺少“>”(在标识符“type”的前面)
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\functional(472): error C2027: 使用了未定义类型“std::_Get_function_impl<_Fty>”
+          with
+          [
+              _Fty=int
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\functional(472): note: 参见“std::_Get_function_impl<_Fty>”的声明
+          with
+          [
+              _Fty=int
+          ]
+  d:\github\repository\algorithm\algorithm\settingstimer\settingtimer\settingtimer\timer.h(75): note: 参见对正在编译的类 模板 实例化“std::function<int>”的引用
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\functional(473): error C2504: “type”: 未定义基类
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\functional(475): error C2027: 使用了未定义类型“std::_Get_function_impl<_Fty>”
+          with
+          [
+              _Fty=int
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\functional(472): note: 参见“std::_Get_function_impl<_Fty>”的声明
+          with
+          [
+              _Fty=int
+          ]
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\functional(475): error C3646: “_Mybase”: 未知重写说明符
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\functional(475): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+d:\github\repository\algorithm\algorithm\settingstimer\settingtimer\settingtimer\timer.h(75): error C2664: “std::function<int>::function(std::function<int> &&)”: 无法将参数 1 从“std::_Binder<std::_Unforced,void (__cdecl &)(std::string &),const char (&)[6]>”转换为“std::nullptr_t”
+  d:\github\repository\algorithm\algorithm\settingstimer\settingtimer\settingtimer\timer.h(75): note: nullptr 只能转换成指针或句柄类型
+d:\github\repository\algorithm\algorithm\settingstimer\settingtimer\settingtimer\timer.h(77): error C2064: 项不会计算为接受 0 个参数的函数
+d:\github\repository\algorithm\algorithm\settingstimer\settingtimer\settingtimer\timer.h(82): error C2039: “type”: 不是“std::result_of<callable (const char (&)[6])>”的成员
+          with
+          [
+              callable=void (__cdecl &)(std::string &)
+          ]
+  d:\github\repository\algorithm\algorithm\settingstimer\settingtimer\settingtimer\timer.h(74): note: 参见“std::result_of<callable (const char (&)[6])>”的声明
+          with
+          [
+              callable=void (__cdecl &)(std::string &)
+          ]
+  d:\github\repository\algorithm\algorithm\settingstimer\settingtimer\settingtimer\settingtimer.cpp(43): note: 参见对正在编译的函数 模板 实例化“void Timer::AsyncWait<void(__cdecl &)(std::string &),const char(&)[6]>(int,callable,const char (&)[6])”的引用
+          with
+          [
+              callable=void (__cdecl &)(std::string &)
+          ]
+d:\github\repository\algorithm\algorithm\settingstimer\settingtimer\settingtimer\timer.h(82): error C2146: 语法错误: 缺少“>”(在标识符“type”的前面)
+d:\github\repository\algorithm\algorithm\settingstimer\settingtimer\settingtimer\timer.h(83): error C2664: “std::function<int>::function(std::function<int> &&)”: 无法将参数 1 从“std::_Binder<std::_Unforced,void (__cdecl &)(std::string &),const char (&)[6]>”转换为“std::nullptr_t”
+  d:\github\repository\algorithm\algorithm\settingstimer\settingtimer\settingtimer\timer.h(83): note: nullptr 只能转换成指针或句柄类型
+d:\github\repository\algorithm\algorithm\settingstimer\settingtimer\settingtimer\timer.h(89): error C2064: 项不会计算为接受 0 个参数的函数
