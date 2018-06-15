@@ -4,12 +4,12 @@
 This file Collect the classical algorithm item.
     
 
- 1. String\n
-     *1) String Combination*\n;
-     *2) String permutation*\n;
+ 1. String  
+     *1) String Combination*;  
+     *2) String permutation*;  
  
- 2. Thread\n
-    *1) ThreadPool*
+ 2. Thread  
+    *1) ThreadPool*  
  3. 
 
 
