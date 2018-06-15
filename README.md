@@ -1,5 +1,15 @@
 # Algorithm
+----------
+## Summary
+This file Collect the classical algorithm item.
+    
 
-## Collect  all  kind of  Algorithm
-### 1、字符串排列
-### 2、字符串组合\n
+ 1. String
+     *1) String Combination*
+     *2) String permutation*
+ 
+ 2. Thread
+    *1) ThreadPool*
+ 3. 
+
+
