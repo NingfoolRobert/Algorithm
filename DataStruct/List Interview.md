@@ -202,8 +202,166 @@ why
 代码
 
 ```C++
-
+// 找到环的入口点
+Node* findLoopPort(Node* head)
+{
+    if(head == nullptr || head->next == nullptr)
+        return nullptr;
+    Node *slow,*fast;
+    slow=fast=head;
+    //先判断是否有环
+    while(fast !=nullptr && fast->next !=nullptr)
+    {
+        fast = fast->next->next;
+        slow= slow->next;
+        if(fast == slow)
+            break;
+    }
+    //不存在环
+    if(fast != slow) 
+        return nullptr;
+    fast = head;			//快指针从头开始走，步长为1
+    while(fast !=head)		//两者相遇即入口点
+    {
+        fast=fast->next;
+        slow=slow->next;
+    }
+    return fast;
+}
 ```
+
+
+
+
+
+
+
+## 1.7. 判断两个链表是否相交
+
+题目
+
+> 给出两个单向链表的头指针（如下图所示），判断这两个链表是否相交。这里为了简化问题，我们假设两个链表均不带环。
+
+![两个链表相交](F:\GitHub\Algorithm\DataStruct\两个链表相交.jpg)
+
+分析
+
+> **1、**直接循环判断第一个链表的每个节点是否在第二个链表中。但，这种方法的时间复杂度为O(Length(h1) * Length(h2))。显然，我们得找到一种更为有效的方法，至少不能是O（N^2）的复杂度。
+>
+> **2、**针对第一个链表直接构造hash表，然后查询hash表，判断第二个链表的每个节点是否在hash表出现，如果所有的第二个链表的节点都能在hash表中找到，即说明第二个链表与第一个链表有相同的节点。时间复杂度为为线性：O(Length(h1) + Length(h2))，同时为了存储第一个链表的所有节点，空间复杂度为O(Length(h1))。是否还有更好的方法呢，既能够以线性时间复杂度解决问题，又能减少存储空间？
+>
+> **3、**转换为环的问题。把第二个链表接在第一个链表后面，如果得到的链表有环，则说明两个链表相交。如何判断有环的问题上面已经讨论过了，但这里有更简单的方法。因为如果有环，则第二个链表的表头一定也在环上，即第二个链表会构成一个循环链表，我们只需要遍历第二个链表，看是否会回到起始点就可以判断出来。这个方法的时间复杂度是线性的，空间是常熟。
+>
+> **4、**进一步考虑“如果两个没有环的链表相交于某一节点，那么在这个节点之后的所有节点都是两个链表共有的”这个特点，我们可以知道，如果它们相交，则最后一个节点一定是共有的。而我们很容易能得到链表的最后一个节点，所以这成了我们简化解法的一个主要突破口。那么，我们只要判断两个链表的尾指针是否相等。相等，则链表相交；否则，链表不相交。
+>
+> 所以，先遍历第一个链表，记住最后一个节点。然后遍历第二个链表，到最后一个节点时和第一个链表的最后一个节点做比较，如果相同，则相交，否则，不相交。这样我们就得到了一个时间复杂度，它为O((Length(h1) + Length(h2))，而且只用了一个额外的指针来存储最后一个节点。这个方法时间复杂度为线性O(N)，空间复杂度为O(1)，显然比解法三更胜一筹。
+
+代码
+
+```c++
+//判断两个链表是否相交
+bool IsIntersect(Node* h1,Node* h2)
+{
+    if(nullptr == h1 || nullptr == h2)
+        return false;
+    while(h1->next !=nullptr)
+        h1=h1->next;
+    while(h2->next != nullptr)
+        h2=h2->next;
+    
+   if(h1==h2)
+       return true;
+    return false;
+}
+```
+
+
+
+## 1.8. 两个链表相交的第一个公共节点
+
+题目
+
+> 如果两个无环单链表相交，怎么求出他们相交的第一个节点呢？
+
+分析
+
+> 采用对齐的思想。计算两个链表的长度 L1 , L2，分别用两个指针 p1 , p2 指向两个链表的头，然后将较长链表的 p1（假设为 p1）向后移动`L2 - L1`个节点，然后再同时向后移动p1 , p2，直到 `p1 = p2`。相遇的点就是相交的第一个节点。
+
+代码
+
+```C++
+// 求两链表相交的第一个公共节点
+Node* findIntersectNode(Node* h1,Node*h2)
+{
+    int len1 = listLength(h1);
+    int len2= listLength(h2);
+    if(len1 > len2)
+    {
+        for(int iLoop=0;iLoop < len1-len2;++iLoop)
+        	h1=h1->next;
+    }
+    else
+    {
+         for(int iLoop=0;iLoop < len1-len2;++iLoop)
+        	h2=h2->next;
+    }
+    while(h1 !=null)
+    {
+        if(h1==h2)
+        	return h1;
+        h1=h1->next;
+        h2=h2->next;
+    }
+    return nullptr;
+    
+}
+```
+
+
+
+## 1.9. 链表有环，如何判断相交
+
+题目
+
+> 上面的问题都是针对链表无环的，那么如果现在，链表是有环的呢?上面的方法还同样有效么?
+
+分析
+
+> 如果有环且两个链表相交，则两个链表都有共同一个环，即环上的任意一个节点都存在于两个链表上。因此，就可以判断一链表上俩指针相遇的那个节点，在不在另一条链表上。
+
+代码
+
+```C++
+//判断两个带环链表是否相交
+bool isIntersecWithLoop(Node* h1,Node* h2)
+{
+    Node *circleNode1,*circleNode2;
+   	if(!hascircle(h1,circleNode1))
+        return false;
+    if(!hascircle(h2,circleNode2))
+        return false;
+    Node* temp = circleNode2->next;
+    while(temp != circleNode2)
+    {
+        if(temp == circleNode1)
+            return true;
+        temp = temp->next;
+    }
+    return false;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
