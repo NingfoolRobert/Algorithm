@@ -36,6 +36,9 @@
     <ClInclude Include="03-LengthOfLongestSubString.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="04-FindMedianSortedArrays.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
