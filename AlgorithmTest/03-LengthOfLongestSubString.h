@@ -37,7 +37,7 @@ int Solution::lengthOfLongestSubString(string s)
 	return nLenMax;
 }
 
-// 16ms  9MB//滑动窗口自建
+// 16ms  9MB//滑动窗口自建hash_map
 int Solution::lengthSubString(string s)
 {
 	int ans = 0;

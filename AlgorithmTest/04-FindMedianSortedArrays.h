@@ -13,6 +13,9 @@ using namespace std;
 请你找出这两个有序数组的中位数，并且要求算法的时间复杂度为 O(log(m + n))。
 
 你可以假设 nums1 和 nums2 不会同时为空。
+
+
+中位数核心：左右两边的个数相同
 */
 
 
@@ -36,16 +39,21 @@ double Solution::FindMedianSortedArrays(vector<int>& nums1, vector<int>& nums2)
 	int nMedian2 = 0;
 	while (nleft < nRight)
 	{
-		 nMedian1 = nleft + (nRight - nleft) / 2;
-		 nMedian2 = nMedian - nMedian1;
+		nMedian1 = nleft + (nRight - nleft) / 2;
+		nMedian2 = nMedian - nMedian1;
+		// LMax1 <  Rmin2
 		if (nums1[nMedian1] < nums2[nMedian2 - 1])
+		{
 			nleft = nMedian1 + 1;
+		}
 		else
+		{
 			nRight = nMedian1;
+		}
 	}
 	 nMedian1 = nleft;
 	 nMedian2 = nMedian - nleft;
-
+	 //L
 	int nCenter1 = max((nMedian1 <= 0 ? INT_MIN : nums1[nMedian1 - 1]), 
 						(nMedian2 <= 0 ? INT_MIN : nums2[nMedian2 - 1]));
 	if ((nSize2 + nSize1) % 2 == 1)
