@@ -8,12 +8,15 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	string str = "abccb";
+	string str = "ccc";
 	
 	Solution solu;
 
-	string str1 = solu.longestPalindrome(str);
+//	string str1 = solu.longestPalindrome(str);
+	string str1 = "cnblogs";
+	string str2 = "belong";
 
+	string strTest = solu.LongestCommonSubsequence(str1, str2);
 	return 0;
 }
 

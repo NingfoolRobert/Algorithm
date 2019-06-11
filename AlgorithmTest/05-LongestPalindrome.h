@@ -91,6 +91,8 @@ belong
 */
 
 
+
+
 std::string Solution::LongestCommonSubsequence(string str1, string str2)
 {
 	int nLen1 = str1.length();
@@ -99,27 +101,25 @@ std::string Solution::LongestCommonSubsequence(string str1, string str2)
 	{
 		return "";
 	}
+	if (nLen1 > nLen2)
+		return LongestCommonSubsequence(str2, str1);
 	string str("");
 	int max = 0;
-	vector<vector<int>> Array(nLen1, vector<int>(nLen2, 0));
+	vector<vector<int>> Array(nLen1+1, vector<int>(nLen2+1, 0));
+	
 	Array[0][0] = 0;
-	for (int i = 0; i < nLen1; ++i)
+	for (int i = 1; i <= nLen1; ++i)
 	{
 		
-		for (int j = 0; j < nLen2; ++j)
+		for (int j = 1; j <= nLen2; ++j)
 		{
-			if (j == 0 || i == 0)
-			{
-				if (str1.at(i) != str2.at(j))
-					Array[i][j] = 0;
-				else
-					Array[i][j] = 1;
-				continue;
-			}
-			if (str1.at(i) == str2.at(j))
+			if (str1.at(i-1) == str2.at(j-1))
 			{
 				Array[i][j] = Array[i - 1][j - 1] + 1;
-				str += str1.at(i);
+				if (Array[i - 1][j - 1] >= str.length())
+				{
+					str += str1.at(i - 1);;
+				}
 			}
 			else
 				Array[i][j] = max(Array[i - 1][j], Array[i][j - 1]);
