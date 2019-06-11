@@ -36,10 +36,28 @@ using namespace std;
 class Solution
 {
 public:
+
+	void  Test();
+
 	std::string longestPalindrome(string s);
 	std::string LongestCommonSubsequence(string str1, string str2);
 	std::string LongestSubsequence(string str1, string str2);
 };
+
+void Solution::Test()
+{
+	string str = "ccc";
+
+	Solution solu;
+
+	//	string str1 = solu.longestPalindrome(str);
+	string str1 = "cnblogs";
+	string str2 = "belong";
+
+	string strTest = solu.LongestCommonSubsequence(str1, str2);
+
+	string strSub = solu.LongestSubsequence(str1, str2);
+}
 
 std::string Solution::longestPalindrome(string s)
 {

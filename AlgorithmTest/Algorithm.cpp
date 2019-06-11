@@ -3,22 +3,15 @@
 
 #include "stdafx.h"
 #include "PaperMoneyChange.h"
-#include "05-LongestPalindrome.h"
+#include "06-ZConvert.h"
+/*#include "05-LongestPalindrome.h"*/
+
 
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	string str = "ccc";
-	
 	Solution solu;
-
-//	string str1 = solu.longestPalindrome(str);
-	string str1 = "cnblogs";
-	string str2 = "belong";
-
-	string strTest = solu.LongestCommonSubsequence(str1, str2);
-
-	string strSub = solu.LongestSubsequence(str1, str2);
+	solu.Test06();
 	return 0;
 }
 
