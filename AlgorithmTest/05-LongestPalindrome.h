@@ -37,6 +37,7 @@ class Solution
 {
 public:
 	std::string longestPalindrome(string s);
+	std::string LongestCommonSubsequence(string str1, string str2);
 };
 
 std::string Solution::longestPalindrome(string s)
@@ -76,3 +77,55 @@ std::string Solution::longestPalindrome(string s)
 	return s.substr(nStart, nMax);
 }
 
+
+/*
+最长公共子序列
+cnblogs
+belong
+比如序列bo, bg, lg在母串cnblogs与belong中都出现过并且出现顺序与母串保持一致，
+我们将其称为公共子序列。
+最长公共子序列（Longest Common Subsequence,LCS），
+顾名思义，是指在所有的子序列中最长的那一个。
+子串是要求更严格的一种子序列，要求在母串中连续地出现。
+在上述例子的中，最长公共子序列为blog（cnblogs,belong），最长公共子串为lo（cnblogs, belong）。
+*/
+
+
+std::string Solution::LongestCommonSubsequence(string str1, string str2)
+{
+	int nLen1 = str1.length();
+	int nLen2 = str2.length();
+	if (nLen1 == 0 || nLen2 == 0)
+	{
+		return "";
+	}
+	string str("");
+	int max = 0;
+	vector<vector<int>> Array(nLen1, vector<int>(nLen2, 0));
+	Array[0][0] = 0;
+	for (int i = 0; i < nLen1; ++i)
+	{
+		
+		for (int j = 0; j < nLen2; ++j)
+		{
+			if (j == 0 || i == 0)
+			{
+				if (str1.at(i) != str2.at(j))
+					Array[i][j] = 0;
+				else
+					Array[i][j] = 1;
+				continue;
+			}
+			if (str1.at(i) == str2.at(j))
+			{
+				Array[i][j] = Array[i - 1][j - 1] + 1;
+				str += str1.at(i);
+			}
+			else
+				Array[i][j] = max(Array[i - 1][j], Array[i][j - 1]);
+
+		}
+	}
+	std::cout << str << std::endl;
+	return str;
+}
