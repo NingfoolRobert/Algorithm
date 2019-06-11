@@ -41,31 +41,38 @@ public:
 
 std::string Solution::longestPalindrome(string s)
 {
+	
 	int nStart = 1;
 	int nMax = 1;
 	int nLen = s.length();
+	if (nLen <= 1)
+		return s;
 	vector<vector<int>> Array(nLen,vector<int>(nLen,0));
 	
 	for (int iLoop = 0; iLoop < nLen; ++iLoop)
 	{
 		Array[iLoop][iLoop] = 1;
-		if (s.at(iLoop) == s.at(iLoop + 1) && iLoop < nLen - 1)
+		if (iLoop < nLen - 1 && s.at(iLoop) == s.at(iLoop + 1))
 		{
 			Array[iLoop][iLoop + 1] = 1;
+			nStart = iLoop;
+			nMax = 2;
 		}
 	}
 	
-	for (int iLoop = 1; iLoop < nLen; ++iLoop)
+	for (int l = 3; l < nLen; ++l)
 	{
-		for (int j = iLoop+1; j < nLen-1; ++j)
+		for (int i = 0; i+l -1 < nLen; ++i)
 		{
-			if (Array[iLoop][j] && (s.at(iLoop) == s.at(j)))
+			int j = i + l - 1;
+			if (s.at(i) == s.at(j) && Array[i + 1][j - 1] == 1)
 			{
-				Array[iLoop - 1][j + 1] = 1;
-				nStart = iLoop;
-				nMax++;
+				Array[i][j] = 1;
+				nStart = i;
+				nMax = l;
 			}
 		}
 	}
+	return s.substr(nStart, nMax);
 }
 
