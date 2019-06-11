@@ -17,6 +17,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	string str2 = "belong";
 
 	string strTest = solu.LongestCommonSubsequence(str1, str2);
+
+	string strSub = solu.LongestSubsequence(str1, str2);
 	return 0;
 }
 

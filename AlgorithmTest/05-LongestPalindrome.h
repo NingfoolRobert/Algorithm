@@ -38,6 +38,7 @@ class Solution
 public:
 	std::string longestPalindrome(string s);
 	std::string LongestCommonSubsequence(string str1, string str2);
+	std::string LongestSubsequence(string str1, string str2);
 };
 
 std::string Solution::longestPalindrome(string s)
@@ -88,6 +89,10 @@ belong
 顾名思义，是指在所有的子序列中最长的那一个。
 子串是要求更严格的一种子序列，要求在母串中连续地出现。
 在上述例子的中，最长公共子序列为blog（cnblogs,belong），最长公共子串为lo（cnblogs, belong）。
+
+				0								j=0 && i=0
+dp[i][j] =		dp[i-1][j-1]+1					j>0,i>0 且 str1[i]==str2[j];
+				max(dp[i-1][j],dp[i][j-1])		j>0,i>0 且 str1[i]!=str2[j];
 */
 
 
@@ -128,4 +133,47 @@ std::string Solution::LongestCommonSubsequence(string str1, string str2)
 	}
 	std::cout << str << std::endl;
 	return str;
+}
+
+
+/*
+最长公共子串
+				0								str1[i]!=str2[j];
+dp[i][j] =		
+			dp[i-1][j-1]+1					 str1[i]==str2[j];
+			
+
+*/
+
+std::string Solution::LongestSubsequence(string str1, string str2)
+{
+	int nLen1 = str1.length();
+	int nLen2 = str2.length();
+
+	if (nLen1 == 0 || nLen2 == 0)
+		return "";
+	
+	vector<vector<int>> Array(nLen1+1, vector<int>(nLen2+1, 0));
+	
+	int iMax = 0;
+	int jMax = 0;
+	int nMax = 0;
+	for (int i = 1; i <= nLen1; ++i)
+	{
+		for (int j = 1; j <= nLen2; ++j)
+		{
+			if(str1.at(i-1) == str2.at(j-1))
+			{
+				Array[i][j] = Array[i - 1][j - 1] + 1;
+				if (nMax < Array[i][j])
+				{
+					nMax = Array[i][j];
+					iMax = i;
+					jMax = j;
+				}
+			}
+		}
+	}
+
+	return str1.substr(iMax - nMax, nMax);
 }
