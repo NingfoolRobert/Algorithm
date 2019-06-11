@@ -60,9 +60,9 @@ std::string Solution::longestPalindrome(string s)
 		}
 	}
 	
-	for (int l = 3; l < nLen; ++l)
+	for (int l = 3; l <= nLen; ++l)
 	{
-		for (int i = 0; i+l -1 < nLen; ++i)
+		for (int i = 0; i + l -1 < nLen; ++i)
 		{
 			int j = i + l - 1;
 			if (s.at(i) == s.at(j) && Array[i + 1][j - 1] == 1)
