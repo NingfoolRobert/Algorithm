@@ -32,7 +32,7 @@ Ans:
 将多阶段过程转化为一系列单阶段问题，利用各阶段之间的关系，逐个求解，创立了解决这类过程优化问题的新方法
 */
 
-
+using namespace std;
 class Solution
 {
 public:
@@ -41,19 +41,31 @@ public:
 
 std::string Solution::longestPalindrome(string s)
 {
-	int nlen = s.length();
-	int** pInt = new int*[nlen];
-	for (int iLoop = 0; iLoop < nlen; ++iLoop)
+	int nStart = 1;
+	int nMax = 1;
+	int nLen = s.length();
+	vector<vector<int>> Array(nLen,vector<int>(nLen,0));
+	
+	for (int iLoop = 0; iLoop < nLen; ++iLoop)
 	{
-		pInt[iLoop] = new int[nlen];
-		for (int j =0 ;j< nlen;++j)
+		Array[iLoop][iLoop] = 1;
+		if (s.at(iLoop) == s.at(iLoop + 1) && iLoop < nLen - 1)
 		{
-			pInt[iLoop][j] = 0;
-			if (iLoop == j)
-				pInt[iLoop][j] = 1;
+			Array[iLoop][iLoop + 1] = 1;
 		}
 	}
-
 	
+	for (int iLoop = 1; iLoop < nLen; ++iLoop)
+	{
+		for (int j = iLoop+1; j < nLen-1; ++j)
+		{
+			if (Array[iLoop][j] && (s.at(iLoop) == s.at(j)))
+			{
+				Array[iLoop - 1][j + 1] = 1;
+				nStart = iLoop;
+				nMax++;
+			}
+		}
+	}
 }
 
