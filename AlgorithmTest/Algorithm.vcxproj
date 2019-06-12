@@ -81,6 +81,7 @@
     <ClInclude Include="04-FindMedianSortedArrays.h" />
     <ClInclude Include="05-LongestPalindrome.h" />
     <ClInclude Include="06-ZConvert.h" />
+    <ClInclude Include="07-Reverse.h" />
     <ClInclude Include="CommonHelper.h" />
     <ClInclude Include="HeapTest.h" />
     <ClInclude Include="stdafx.h" />

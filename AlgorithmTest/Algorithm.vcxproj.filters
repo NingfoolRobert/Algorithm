@@ -48,6 +48,9 @@
     <ClInclude Include="06-ZConvert.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="07-Reverse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
