@@ -14,6 +14,11 @@ public:
 	char* strchr_(const char* pszDest, char chr);
 public:
 	void memset_(void* pValue, int , int nSize);
+
+public:
+	void  swap_add(int &x, int &y);		//加减
+	void  swap_memcpy(int &x, int &y);	//memcpy
+	void  swap_xor(int& x, int& y);		//异或  仅限于整数int型
 protected:
 	int Convert(const char* pszNum);
 
@@ -99,6 +104,28 @@ void StrFunc::memset_(void* pValue, int nValue, int nSize)
 	{
 		*pData++ = (unsigned char)nValue;
 	}
+}
+
+void StrFunc::swap_add(int &x, int &y)
+{
+	x = x + y;
+	y = x - y;
+	x = x - y;
+}
+
+void StrFunc::swap_memcpy(int &x, int &y)
+{
+	char sztmp[10] = { 0 };
+	memcpy(sztmp, &x, sizeof(x));
+	memcpy(&x, &y, sizeof(y));
+	memcpy(&y, sztmp, sizeof(y));
+}
+
+void StrFunc::swap_xor(int& x, int& y)
+{
+	x = x ^ y;
+	y = x ^ y;
+	x = x ^ y;
 }
 
 int StrFunc::Convert(const char* pszNum)
