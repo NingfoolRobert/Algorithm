@@ -15,7 +15,6 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
  
-class
 class Solution
 {
 public:
@@ -24,6 +23,11 @@ public:
 protected:
 private:
 };
+
+void Solution::Test98()
+{
+
+}
 
 bool Solution::isValidBST(TreeNode* RootNode)
 {

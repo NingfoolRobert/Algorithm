@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "morris_Inorder.h"
 
 
@@ -17,6 +18,7 @@ bool CBinarySTree::Insert(int nvalue)
 	TreeNode* pNode = new TreeNode(nvalue);
 	if (pNode == nullptr)
 		return false;
+
 	if (m_RootNode == nullptr)
 	{
 		m_RootNode = pNode;
@@ -54,7 +56,7 @@ bool CBinarySTree::Insert(int nvalue)
 
 bool CBinarySTree::Delete(TreeNode* pNode)
 {
-	TreeNode* pNode = m_RootNode;
+	TreeNode* pTmp = m_RootNode;
 	if (pNode == nullptr)
 		return true;
 
@@ -115,7 +117,7 @@ void CBinarySTree::morris_inorder(TreeNode* pTreeNode)
 			else
 			{
 				Print(pTmp);
-				pNode->right = nullptr;
+				pNode->pRight= nullptr;
 				pNode = pNode->pRight;
 			}
 		}

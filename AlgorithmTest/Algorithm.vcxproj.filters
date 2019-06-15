@@ -51,6 +51,15 @@
     <ClInclude Include="07-Reverse.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="98-IsValidBST.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="morris_Inorder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StrFunc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -58,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="Algorithm.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="morris_Inorder.cpp">
+      <Filter>头文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
