@@ -9,10 +9,11 @@ class StrFunc
 public:
 	char* strcat_(char* pszDest, const char* pszSrc);
 	char* strcpy_(char*pszDest, const char* pszSrc);
-	int strcmp_(const char* pszSrc, const char* pszDest);
+	int   strcmp_(const char* pszSrc, const char* pszDest);
+	char* strrchr_(const char* pszDest, char chr);
+	char* strchr_(const char* pszDest, char chr);
 public:
-	void memset_(void* pValue, int 
-		, int nSize);
+	void memset_(void* pValue, int , int nSize);
 protected:
 	int Convert(const char* pszNum);
 
@@ -55,6 +56,39 @@ int StrFunc::strcmp_(const char* pszSrc, const char* pszDest)
 	return nRet;
 }
 
+char* StrFunc::strrchr_(const char* pszDest, char chr)
+{
+	assert(pszDest == nullptr);
+	
+	if (0 == strlen(pszDest))
+		return nullptr;
+	
+	char* p = pszDest + strlen(pszDest);
+	while (p != pszDest)
+	{
+		if (*p == chr)
+			return p;
+		p--;
+	}
+
+	return nullptr;
+}
+
+char* StrFunc::strchr_(const char* pszDest, char chr)
+{
+	assert(pszDest == nullptr);
+	if (0 == strlen(pszDest))
+		return nullptr;
+	char* p = pszDest;
+	int nSize = strlen(pszDest);
+	while (nSize--)
+	{
+		if (*p == chr)
+			return p;
+	}
+	return p
+}
+
 void StrFunc::memset_(void* pValue, int nValue, int nSize)
 {
 	assert(pValue == nullptr);
@@ -84,6 +118,8 @@ int StrFunc::Convert(const char* pszNum)
 		else if (*pszNum >= '0' && *pszNum <= '9')
 			nTmp = *pszNum - '0';
 		else
+			return 0;
+		if (nRet > (INT_MAX >> 4))
 			return 0;
 		nRet = nRet * 16 + nTmp;
 	}
