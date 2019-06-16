@@ -12,9 +12,20 @@ void func()
 {
 	static int val;
 }
+int Add_n(int n)
+{
+	static int i = 100;
+	i += n;
+	return i;
+}
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+
+	int nTest = Add_n(10);
+	std::cout << nTest << std::endl;
+	nTest = Add_n(10);
+	std::cout << nTest << std::endl;
 
 	char szTmp[56] = { 0 };
 	strcat(szTmp, "helloworld");
