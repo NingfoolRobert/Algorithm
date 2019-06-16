@@ -12,7 +12,7 @@ public:
 	int   strcmp_(const char* pszSrc, const char* pszDest);
 	char* strrchr_(const char* pszDest, char chr);
 	char* strchr_(const char* pszDest, char chr);
-	long strtol_(const char* nptr, char** endPtr, int base);		//base[2,36]
+	unsigned long strtol_(const char* nptr, char** endPtr, int base);		//base[2,36]
 
 public:
 	void memset_(void* pValue, int , int nSize);
@@ -97,7 +97,7 @@ char* StrFunc::strchr_(const char* pszDest, char chr)
 	return p
 }
 
-long StrFunc::strtol_(const char* nptr, char** endPtr, int base)
+unsigned long StrFunc::strtol_(const char* nptr, char** endPtr, int base)
 {
 	const char* p = nptr;
 	unsigned long lRet = 0;
@@ -122,6 +122,8 @@ long StrFunc::strtol_(const char* nptr, char** endPtr, int base)
 		p += 2;
 		base = 16;
 	}
+
+
 	if (base == 0)
 		base = ch == '0' ? 8 : 10;
 
