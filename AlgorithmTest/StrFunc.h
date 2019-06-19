@@ -38,7 +38,7 @@ char* StrFunc::strcat_(char* pszDest, const char* pszSrc)
 	
 	while (*p++ = *pszSrc++);
 	
-	return pszDest;
+	return pszDest;		//目的是方便程序中语句内联，比如strlen(strcpy(s,t))
 }
 
 char* StrFunc::strcpy_(char*pszDest, const char* pszSrc)

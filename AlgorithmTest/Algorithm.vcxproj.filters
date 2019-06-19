@@ -60,6 +60,9 @@
     <ClInclude Include="StrFunc.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="MutilVCA.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
