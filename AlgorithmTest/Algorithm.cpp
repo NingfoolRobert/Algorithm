@@ -7,6 +7,7 @@
 //#include "98-IsValidBST.h"
 /*#include "06-ZConvert.h"*/
 /*#include "05-LongestPalindrome.h"*/
+#include "StrFunc.h"
 
 void func()
 {
@@ -25,30 +26,23 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 
 
-	int nTest = Add_n(10);
-	std::cout << nTest << std::endl;
-	nTest = Add_n(10);
-	std::cout << nTest << std::endl;
+// 	int nTest = Add_n(10);
+// 	std::cout << nTest << std::endl;
+// 	nTest = Add_n(10);
+// 	std::cout << nTest << std::endl;
+// 
+// 	char szTmp[56] = { 0 };
+// 	strcat(szTmp, "helloworld");
+// 
+// 	float flValue = 0;
+// 	
+// 	if (flValue > -1e-6 && flValue <= 1e-6)
+// 	{
+// 		std::cout << "Test" << std::endl;
+// 	}
 
-	char szTmp[56] = { 0 };
-	strcat(szTmp, "helloworld");
-
-	float flValue = 0;
-	
-	if (flValue > -1e-6 && flValue <= 1e-6)
-	{
-		std::cout << "Test" << std::endl;
-	}
-
-
-	int a = 9;
-	int b = 5;
-	a = a ^ b;
-	b = a ^ b;
-	a = a ^ b;
-	std::cout << "a=" << a << ",b=" << b << std::endl;
-// 	Solution solu;
-// 	solu.Test07();
+	StrFunc strf;
+	std::cout << strf.myAtoi("2147483648") << std::endl;
 
 	system("pause");
 

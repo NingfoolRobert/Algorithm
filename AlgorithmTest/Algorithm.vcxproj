@@ -90,6 +90,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StrFunc.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TestDeadLock.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algorithm.cpp" />

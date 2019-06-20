@@ -2,7 +2,7 @@
 #include <process.h>
 #include <Windows.h>
 /*
-
+	
 */
 CRITICAL_SECTION   m_clsLock1;
 CRITICAL_SECTION   m_clsLock2;

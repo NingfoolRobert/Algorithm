@@ -14,6 +14,8 @@ public:
 	char* strchr_(const char* pszDest, char chr);
 	unsigned long strtol_(const char* nptr, char** endPtr, int base);		//base[2,36]
 
+	int  myAtoi(std::string str);
+
 public:
 	void memset_(void* pValue, int , int nSize);
 	void* memcpy_(char* pszDest, const char* pszSrc, size_t len);
@@ -71,7 +73,7 @@ char* StrFunc::strrchr_(const char* pszDest, char chr)
 	if (0 == strlen(pszDest))
 		return nullptr;
 	
-	char* p = pszDest + strlen(pszDest);
+	char* p =const_cast<char*> (pszDest + strlen(pszDest) - 1);
 	while (p != pszDest)
 	{
 		if (*p == chr)
@@ -87,14 +89,14 @@ char* StrFunc::strchr_(const char* pszDest, char chr)
 	assert(pszDest == nullptr);
 	if (0 == strlen(pszDest))
 		return nullptr;
-	char* p = pszDest;
+	char* p = const_cast<char*>(pszDest);
 	int nSize = strlen(pszDest);
 	while (nSize--)
 	{
 		if (*p == chr)
 			return p;
 	}
-	return p
+	return p;
 }
 
 unsigned long StrFunc::strtol_(const char* nptr, char** endPtr, int base)
@@ -161,6 +163,54 @@ unsigned long StrFunc::strtol_(const char* nptr, char** endPtr, int base)
 	return lRet;
 }
 
+int StrFunc::myAtoi(std::string str)
+{
+	int nLen = str.length();
+	int nIndex = 0;
+	int nFlag = 1;
+	int nValue = 0;
+	while (nIndex < nLen)
+	{
+		if(' ' != str.at(nIndex))
+			break;
+		nIndex++;
+	}
+	if (nIndex == nLen)
+		return 0;
+	if (str.at(nIndex) == '-' || str.at(nIndex) == '+')
+	{
+		if(str.at(nIndex) == '-')
+			nFlag = -1;
+		nIndex++;
+	}
+	int nTmp = 0;
+	while (nIndex < nLen)
+	{
+		if (isdigit(str.at(nIndex)))
+		{
+			nTmp = str.at(nIndex) - '0';
+		}
+		else
+		{
+			break;
+		}
+		//
+		nValue *= nFlag;
+		if (nValue > (INT_MAX / 10) || (nValue == (INT_MAX / 10) && nTmp >= 8))
+		{
+			if (nFlag > 0)
+				return INT_MAX;
+			else
+				return INT_MIN;
+		}
+		nValue *= nFlag;
+		nValue = nValue * 10 + nTmp * nFlag;
+		nIndex++;
+
+	}
+	return nValue;
+}
+
 void StrFunc::memset_(void* pValue, int nValue, int nSize)
 {
 	assert(pValue == nullptr);
@@ -187,7 +237,7 @@ void* StrFunc::memcpy_(char* pszDest, const char* pszSrc, size_t len)
 			pszDest = (char*)pszDest + 1;
 			pszSrc = (char*)pszSrc + 1;
 		}
-		pszDest = pRet;
+		pszDest = (char*)pRet;
 	}
 	else
 	{
@@ -218,7 +268,7 @@ void* StrFunc::memmove_(char* pszDest, const char* pszSrc, size_t len)
 			pszDest = (char*)pszDest + 1;
 			pszSrc = (char*)pszSrc + 1;
 		}
-		pszDest = pRet;
+		pszDest = (char*)pRet;
 	}
 	else
 	{
