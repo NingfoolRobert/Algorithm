@@ -35,6 +35,13 @@ public:
 	TreeNode* ReverseEdge(TreeNode* pTreeNode);
 
 	void Print(TreeNode* pTreeNode);
+public:
+	//判断二叉树是不是平衡二叉树
+	bool isBalance(TreeNode* pTreeNode);
+
+protected:
+	int	GetHeight(TreeNode* pTreeNode, int nLevel, bool &bResult);
+
 
 private:
 	struct TreeNode * m_RootNode;
