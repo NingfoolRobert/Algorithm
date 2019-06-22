@@ -228,3 +228,29 @@ void CBinarySTree::Print(TreeNode* pTreeNode)
 		return;
 	std::cout << pTreeNode->_value << std::endl;
 }
+
+bool CBinarySTree::isBalance(TreeNode* pTreeNode)
+{
+	bool bResult = true;
+	GetHeight(pTreeNode, 1, bResult);
+	return bResult;
+}
+
+int CBinarySTree::GetHeight(TreeNode* pTreeNode, int nLevel, bool &bResult)
+{
+	if (nullptr == pTreeNode)
+		return nLevel;
+	int nleftHeight = GetHeight(pTreeNode->pLeft, nLevel + 1, bResult);
+	if (!bResult)
+		return nLevel;
+	int nRightHeigth = GetHeight(pTreeNode->pRight, nLevel + 1, bResult);
+	if (!bResult)
+	{
+		return nLevel;
+	}
+	if (abs(nleftHeight - nRightHeigth) > 1)
+	{
+		bResult = false;
+	}
+	return max(nleftHeight, nRightHeigth);
+}
