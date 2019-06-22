@@ -126,12 +126,100 @@ void CBinarySTree::morris_inorder(TreeNode* pTreeNode)
 
 void CBinarySTree::morris_preOrder(TreeNode* pTreeNode)
 {
-
+	if (nullptr == pTreeNode)
+		return;
+	TreeNode* pNode = pTreeNode;
+	TreeNode* pCur = nullptr;
+	
+	while (pNode)
+	{
+		pCur = pNode->pLeft;
+		if (pCur)
+		{
+			while (pCur->pRight != nullptr && pCur->pRight != pNode)
+			{
+				pCur = pCur->pRight;
+			}
+			if (pCur->pRight == nullptr)
+			{
+				pCur->pRight = pNode;
+				Print(pNode);
+				pNode = pNode->pLeft;
+			}
+			else
+			{
+				pCur->pRight = nullptr;
+			}
+		}
+		else
+		{
+			Print(pNode);
+		}
+		pNode = pNode->pRight;
+	}
+	Print(pNode);
 }
 
 void CBinarySTree::morris_postOrder(TreeNode* pTreeNode)
 {
+	if (nullptr == pTreeNode)
+	{
+		return;
+	}
+	TreeNode* pNode = pTreeNode;
+	TreeNode* pCur = nullptr;
 
+	while (pNode!= nullptr)
+	{
+		pCur = pNode->pLeft;
+		if (pCur !=nullptr)
+		{
+			while (pCur->pRight != nullptr && pCur->pRight != pNode)
+			{
+				pCur = pCur->pRight;
+			}
+			if (pCur->pRight == nullptr)
+			{
+				pCur->pRight = pNode;
+				pNode = pNode->pRight;
+				continue;
+			}
+			else
+			{
+				pCur->pRight = nullptr;
+				PrintEdge(pNode->pLeft);
+			}
+		}
+		pNode = pNode->pRight;
+	}
+	PrintEdge(pTreeNode);
+}
+
+void CBinarySTree::PrintEdge(TreeNode* pTreeNode)
+{
+	TreeNode* pTail = ReverseEdge(pTreeNode);
+	TreeNode* pCur = pTail;
+	while (pCur != nullptr)
+	{
+		Print(pCur);
+		pCur = pCur->pRight;
+	}
+	ReverseEdge(pTail);
+}
+
+TreeNode* CBinarySTree::ReverseEdge(TreeNode* pTreeNode)
+{
+	TreeNode* pNodePre = nullptr;
+	TreeNode* pNodeNext = nullptr;
+	
+	while (pTreeNode != nullptr)
+	{
+		pNodeNext = pTreeNode->pRight;
+		pTreeNode->pRight = pNodePre;
+		pNodePre = pTreeNode;
+		pTreeNode = pNodeNext;
+	}
+	return pNodePre;
 }
 
 void CBinarySTree::Print(TreeNode* pTreeNode)

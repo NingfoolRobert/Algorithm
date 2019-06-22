@@ -30,6 +30,9 @@ public:
 	void morris_inorder(TreeNode* pTreeNode);
 	void morris_preOrder(TreeNode* pTreeNode);
 	void morris_postOrder(TreeNode* pTreeNode);
+	
+	void PrintEdge(TreeNode* pTreeNode);
+	TreeNode* ReverseEdge(TreeNode* pTreeNode);
 
 	void Print(TreeNode* pTreeNode);
 
