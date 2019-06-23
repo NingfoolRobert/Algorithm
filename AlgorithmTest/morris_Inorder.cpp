@@ -95,14 +95,36 @@ void CBinarySTree::morris_inorder(TreeNode* pTreeNode)
 	TreeNode* pTmp = pTreeNode;
 	TreeNode* pNode = nullptr;
 	
+// 	while (pTmp)
+// 	{
+// 		if (pTmp->pLeft == nullptr)
+// 		{
+// 			Print(pTmp);
+// 			pNode = pTmp->pRight;
+// 		}
+// 		else
+// 		{
+// 			pNode = pTmp->pLeft;
+// 			while (pNode->pRight != nullptr && pNode->pRight != pTmp)
+// 			{
+// 				pNode = pNode->pRight;
+// 			}
+// 			if (pNode->pRight == nullptr)
+// 			{
+// 				pNode->pRight = pTmp;
+// 				pTmp = pTmp->pLeft;
+// 			}
+// 			else
+// 			{
+// 				Print(pTmp);
+// 				pNode->pRight= nullptr;
+// 				pNode = pNode->pRight;
+// 			}
+// 		}
+// 	}
 	while (pTmp)
 	{
-		if (pTmp->pLeft == nullptr)
-		{
-			Print(pTmp);
-			pNode = pTmp->pRight;
-		}
-		else
+		if (pTmp->pLeft != nullptr)
 		{
 			pNode = pTmp->pLeft;
 			while (pNode->pRight != nullptr && pNode->pRight != pTmp)
@@ -116,11 +138,12 @@ void CBinarySTree::morris_inorder(TreeNode* pTreeNode)
 			}
 			else
 			{
-				Print(pTmp);
-				pNode->pRight= nullptr;
-				pNode = pNode->pRight;
+				pNode->pRight = nullptr;
 			}
 		}
+
+		Print(pTmp);
+		pNode = pNode->pRight;
 	}
 }
 
