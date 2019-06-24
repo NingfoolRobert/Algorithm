@@ -49,7 +49,7 @@ char* StrFunc::strcpy_(char*pszDest, const char* pszSrc)
 
 	char* p = pszDest;
 
-	while (*p++ = *pszSrc);
+	while (*p++ = *pszSrc++);
 	
 	return pszDest;
 }
