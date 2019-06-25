@@ -7,8 +7,8 @@
 //#include "98-IsValidBST.h"
 /*#include "06-ZConvert.h"*/
 /*#include "05-LongestPalindrome.h"*/
-#include "StrFunc.h"
-
+//#include "StrFunc.h"
+#include "BinarySearch.h"
 void func()
 {
 	static int val;
