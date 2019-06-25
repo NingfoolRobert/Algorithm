@@ -87,6 +87,7 @@
     <ClInclude Include="98-IsValidBST.h" />
     <ClInclude Include="BinarySearch.h" />
     <ClInclude Include="CommonHelper.h" />
+    <ClInclude Include="FindMax_K.h" />
     <ClInclude Include="HeapTest.h" />
     <ClInclude Include="morris_Inorder.h" />
     <ClInclude Include="MutilVCA.h" />
