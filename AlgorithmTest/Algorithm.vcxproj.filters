@@ -72,6 +72,9 @@
     <ClInclude Include="BinarySearch.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="11-maxArea.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
