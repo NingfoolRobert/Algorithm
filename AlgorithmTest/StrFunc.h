@@ -16,6 +16,7 @@ public:
 
 	int  myAtoi(std::string str);
 
+	int strstr_(const char* pszDest, const char* pszSrc);
 public:
 	void memset_(void* pValue, int , int nSize);
 	void* memcpy_(char* pszDest, const char* pszSrc, size_t len);
@@ -209,6 +210,32 @@ int StrFunc::myAtoi(std::string str)
 
 	}
 	return nValue;
+}
+
+int StrFunc::strstr_(const char* pszDest, const char* pszSrc)
+{
+	if (nullptr == pszDest || nullptr == pszSrc || 0 == strlen(pszDest) || 0 == strlen(pszSrc))
+		return -1;
+
+	char* pch1 = const_cast<char*>(pszDest);
+	char* pch2 = nullptr;
+	int nPos = 0;
+	while (*pch1)
+	{
+		char* pTmp = pch1;
+		pch2 = const_cast<char*>(pszSrc);
+		while (*pTmp != 0 && * pch2!= 0&&(*pch2 == *pTmp))
+		{
+			pTmp++;
+			pch2++;
+		}
+		if (*pch2 == 0)
+		{
+			return nPos;
+		}
+		nPos++;
+	}
+	return -1;
 }
 
 void StrFunc::memset_(void* pValue, int nValue, int nSize)
