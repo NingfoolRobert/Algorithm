@@ -84,6 +84,7 @@
     <ClInclude Include="07-Reverse.h" />
     <ClInclude Include="08-isPalindrome.h" />
     <ClInclude Include="98-IsValidBST.h" />
+    <ClInclude Include="BinarySearch.h" />
     <ClInclude Include="CommonHelper.h" />
     <ClInclude Include="HeapTest.h" />
     <ClInclude Include="morris_Inorder.h" />
