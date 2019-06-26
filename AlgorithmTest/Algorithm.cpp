@@ -7,8 +7,8 @@
 //#include "98-IsValidBST.h"
 /*#include "06-ZConvert.h"*/
 /*#include "05-LongestPalindrome.h"*/
-//#include "StrFunc.h"
-#include "BinarySearch.h"
+#include "StrFunc.h"
+//#include "BinarySearch.h"
 
 void func()
 {
@@ -43,8 +43,9 @@ int _tmain(int argc, _TCHAR* argv[])
 // 	}
 
 	StrFunc strf;
-	std::cout << strf.myAtoi("2147483648") << std::endl;
+	//std::cout << strf.myAtoi("2147483648") << std::endl;
 
+	std::cout << strf.strstr_28("hello", "ll") << std::endl;
 	system("pause");
 
 	return 0;

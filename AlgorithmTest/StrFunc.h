@@ -1,9 +1,11 @@
-#pragma once
+﻿#pragma once
 
 
 #include <iostream>
 #include <assert.h>
+#include <string>
 
+using namespace std;
 class StrFunc
 {
 public:
@@ -17,16 +19,20 @@ public:
 	int  myAtoi(std::string str);
 
 	int strstr_(const char* pszDest, const char* pszSrc);
+	int strstr_28(std::string haystack, std::string needle);
+	int strstr_KMP(char* pszDest, const char* pszSrc);
 public:
 	void memset_(void* pValue, int , int nSize);
 	void* memcpy_(char* pszDest, const char* pszSrc, size_t len);
 	void* memmove_(char* pszDest, const char* pszSrc, size_t len);
 public:
-	void  swap_add(int &x, int &y);		//�Ӽ�
+	void  swap_add(int &x, int &y);		//加减
 	void  swap_memcpy(int &x, int &y);	//memcpy
-	void  swap_xor(int& x, int& y);		//���  ����������int��
+	void  swap_xor(int& x, int& y);		//异或  仅限于整数int型
 protected:
 	int Convert(const char* pszNum);
+
+	void get_next(const char* pStr, int *nextArray);
 
 private:
 };
@@ -41,7 +47,7 @@ char* StrFunc::strcat_(char* pszDest, const char* pszSrc)
 	
 	while (*p++ = *pszSrc++);
 	
-	return pszDest;		//Ŀ���Ƿ���������������������strlen(strcpy(s,t))
+	return pszDest;		//目的是方便程序中语句内联，比如strlen(strcpy(s,t))
 }
 
 char* StrFunc::strcpy_(char*pszDest, const char* pszSrc)
@@ -238,6 +244,81 @@ int StrFunc::strstr_(const char* pszDest, const char* pszSrc)
 	return -1;
 }
 
+int StrFunc::strstr_28(std::string haystack, std::string needle)
+{
+	if (0 == haystack.length() && 0 == needle.length())
+		return 0;
+	if (haystack.length() < needle.length())
+		return -1;
+	int nLen1 = haystack.length();
+	int nLen2 = needle.length();
+	int nPos1 = 0;
+	int nPos2 = 0;
+	while (nPos1 < nLen1)
+	{
+		int nTmp = nPos1;
+		nPos2 = 0;
+		while ((nTmp < nLen1) && (nPos2 < nLen2) && (haystack.at(nTmp) == needle.at(nPos2)))
+		{
+			nTmp++;
+			nPos2++;
+		}
+		if (nPos2 == nLen2)
+		{
+			return nPos1;
+		}
+		nPos1++;
+	}
+	return -1;
+}
+
+int StrFunc::strstr_KMP(char* pszDest, const char* pszSrc)
+{
+	if (nullptr == pszDest || nullptr == pszSrc || 0 == strlen(pszDest) || 0 == strlen(pszSrc))
+		return -1;
+	
+	int* pNext = new int[strlen(pszSrc)];
+	int i = 0, j = -1;
+
+	int nLen1 = strlen(pszDest);
+	int nLen2 = strlen(pszSrc);
+	
+	get_next(pszSrc, pNext);
+// 	for (i = 0; i < nLen1; i++)
+// 	{
+// 		while (j > -1 && pszSrc[i] != pszDest[j + 1])///str和str1不匹配，且j>-1（表示str和str1有部分匹配）
+// 			j = pNext[j];///往前回溯
+// 		if (pszSrc[i] == pszDest[j + 1])
+// 			j = j + 1;
+// 		if (j == nLen2 - 1)///说明 j 移动到str1的最末端
+// 		{
+// 			j = -1;///重新初始化，寻找下一个
+// 			i = i - nLen2 + 1;///i定位到该位置，外层for循环i++可以继续找下一个
+// 		}
+// 	}
+
+
+	int i = 0;
+	int j = 0;
+
+	while (i < strlen(pszDest) && j < strlen(pszSrc))
+	{
+		if (j == -1 || pszDest[i] == pszSrc[j])
+		{
+			i++;
+			j++;
+		}
+		else
+			j = next[j];
+	}
+
+	if (j == strlen(pszSrc))
+		return i - j;
+	else
+		return -1;
+
+}
+
 void StrFunc::memset_(void* pValue, int nValue, int nSize)
 {
 	assert(pValue == nullptr);
@@ -268,7 +349,7 @@ void* StrFunc::memcpy_(char* pszDest, const char* pszSrc, size_t len)
 	}
 	else
 	{
-		//���ڴ��ص�ʱ������
+		//有内存重叠时，逆序
 		pszSrc = (char*)pszSrc + len - 1;
 		pszDest = (char*)pszDest + len - 1;
 		while (len--)
@@ -299,7 +380,7 @@ void* StrFunc::memmove_(char* pszDest, const char* pszSrc, size_t len)
 	}
 	else
 	{
-		//���ڴ��ص�ʱ������
+		//有内存重叠时，逆序
 		pszSrc = (char*)pszSrc + len - 1;
 		pszDest = (char*)pszDest + len - 1;
 		while (len--)
@@ -357,4 +438,36 @@ int StrFunc::Convert(const char* pszNum)
 		nRet = nRet * 16 + nTmp;
 	}
 	return nRet;
+}
+
+void StrFunc::get_next(const char* pStr, int *nextArray)
+{
+// 	void get_next(char str1[], int next[])///str1为子串（模式串）
+// 	{
+// 		int i = 1, j = -1;
+// 		next[0] = -1;///next[0]初始化为-1，-1表示不存在相同的最大前缀和最大后缀
+// 
+// 		for (i = 1; i < strlen(str1) - 1; i++)
+// 		{
+// 			while (j > -1 && str1[j + 1] != str1[i])///如果下一个不同，那么j就变成next[j]
+// 				j = next[j];///往前回溯
+// 			if (str1[j + 1] == str1[i])///如果相同，j++
+// 			{
+// 				j = j + 1;
+// 			}
+// 			next[i] = j;///没有相同，next[i]=-1
+// 		}
+// 	}	int i = 1, j = -1;
+	nextArray[0] = -1;
+	for (int i = 1; i < strlen(pStr) - 1; i++)
+	{
+		while (j > -1 && pStr[j + 1] != pStr[i])
+			j = nextArray[j];
+		if (pStr[j+1] == pStr[i])
+		{
+			j += 1;
+		}
+		nextArray[i] = j;
+		
+	}
 }

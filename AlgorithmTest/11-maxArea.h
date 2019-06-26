@@ -56,7 +56,7 @@ int Solution::maxArea_violence(std::vector<int>&Height)
 		int nTmp = 0;
 		for (int j = iLoop + 1;j < Height.size();++j)
 		{
-			nTmp = abs(Height[j] - Height[i]) *(j - i);
+			nTmp = min(Height[j], Height[i]) * (j - i);
 			nMaxArea = max(nMaxArea, nTmp);
 		}
 	}
