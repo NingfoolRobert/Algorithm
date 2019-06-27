@@ -7,8 +7,10 @@
 //#include "98-IsValidBST.h"
 /*#include "06-ZConvert.h"*/
 /*#include "05-LongestPalindrome.h"*/
-#include "StrFunc.h"
+//#include "StrFunc.h"
 //#include "BinarySearch.h"
+#include "ListFunc.h"
+
 
 void func()
 {
@@ -42,10 +44,13 @@ int _tmain(int argc, _TCHAR* argv[])
 // 		std::cout << "Test" << std::endl;
 // 	}
 
-	StrFunc strf;
+	//StrFunc strf;
 	//std::cout << strf.myAtoi("2147483648") << std::endl;
 
-	std::cout << strf.strstr_28("hello", "ll") << std::endl;
+	//std::cout << strf.strstr_28("hello", "ll") << std::endl;
+
+	SingleList List;
+	List.TestList();
 	system("pause");
 
 	return 0;

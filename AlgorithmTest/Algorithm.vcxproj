@@ -89,6 +89,7 @@
     <ClInclude Include="CommonHelper.h" />
     <ClInclude Include="FindMax_K.h" />
     <ClInclude Include="HeapTest.h" />
+    <ClInclude Include="ListFunc.h" />
     <ClInclude Include="morris_Inorder.h" />
     <ClInclude Include="MutilVCA.h" />
     <ClInclude Include="stdafx.h" />
@@ -98,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algorithm.cpp" />
+    <ClCompile Include="ListFunc.cpp" />
     <ClCompile Include="morris_Inorder.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
