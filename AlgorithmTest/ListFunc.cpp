@@ -44,6 +44,11 @@ void SingleList::InsertHead(int nvalue)
 	m_pHead = pNode;
 }
 
+bool SingleList::InsertElementPos(int nvalue, int nPos)
+{
+
+}
+
 bool SingleList::Delete(int nValue)
 {
 	PNODE pNode = m_pHead;
@@ -97,24 +102,6 @@ PNODE SingleList::Reverse(PNODE pHead)
 
 PNODE SingleList::Reverse_no(PNODE pHead)
 {
-// 	PNODE pRet = nullptr;
-// 	PNODE pTmp = pHead;
-// 	while (pTmp != nullptr)
-// 	{
-// 		PNODE pTest = pTmp->pNext;
-// 		if (pRet == nullptr)
-// 		{
-// 			pRet = pTmp;
-// 			pRet->pNext = nullptr;
-// 		}
-// 		else
-// 		{
-// 			pTmp->pNext = pRet;
-// 			pRet = pTmp;
-// 		}
-// 		 pTmp = pTest;
-// 	}
-// 	return pRet;
 	PNODE next;
 	PNODE prev = nullptr;
 	 while (pHead != nullptr)
@@ -148,7 +135,7 @@ void SingleList::Print(PNODE pHead)
 	}
 }
 
-void SingleList::TestList()
+void SingleList::TestSingleList()
 {
 	for (int iLoop = 0; iLoop < 5; ++iLoop)
 	{
@@ -165,5 +152,101 @@ void SingleList::TestList()
 	PNODE pRet = Reverse_no(pReveseNode);
 	cout << "Reverse_no..." << endl;
 	Print(pRet);
+
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+DoubleList::DoubleList(void)
+{
+	m_pHead = nullptr;
+}
+
+DoubleList::~DoubleList(void)
+{
+	DeleteAll();
+}
+
+void DoubleList::InsertTail(int nvalue)
+{
+	PDNODE pNode = new DNODE(nvalue);
+	if (pNode == nullptr)
+		return;
+	
+	PDNODE pTmp = m_pHead;
+	if (pTmp == nullptr)
+	{
+		pTmp = pNode;
+		return;
+	}
+
+	while (pTmp->pNext != nullptr)
+	{
+		pTmp = pTmp->pNext;
+	}
+
+	pNode->pPre = pTmp;
+	pTmp->pNext = pNode;
+}
+
+void DoubleList::InsertHead(int nvalue)
+{
+	PDNODE pNode = new DNODE(nvalue);
+	if (pNode == nullptr)
+		return;
+	//
+	pNode->pNext = m_pHead;
+	m_pHead->pPre = pNode;
+	m_pHead = pNode;
+}
+
+int DoubleList::InsertElementPos(int nvalue, int nPos)
+{
+	int nCurrentPos = 0;
+	PDNODE pNode = new DNODE(nvalue);
+	if (nullptr == pNode)
+		return 0;
+	PDNODE pTmp = m_pHead;
+	
+	if (pTmp == nullptr)
+	{
+		pTmp = pNode;
+		return 0;
+	}
+	while ( nCurrentPos <  nPos && pTmp->pNext != nullptr)
+	{
+		pTmp = pTmp->pNext;
+	}
+	
+	PDNODE pNext = pTmp->pNext;
+	pTmp->pNext = pNode;
+	pNode->pPre = pTmp;
+	pNode->pNext = pNext;
+
+	pNext->pPre = pNode;
+}
+
+bool DoubleList::DeleteElement(int nvalue)
+{
+
+}
+
+void DoubleList::DeleteAll(PDNODE pHead)
+{
+
+}
+
+PDNODE DoubleList::Reverse(PDNODE pHead)
+{
+
+}
+
+void DoubleList::PrePrint(PDNODE pHead)
+{
+
+}
+
+void DoubleList::PostPrint(PDNODE pTail)
+{
 
 }

@@ -18,7 +18,6 @@ private:
 
 int Solution::findMax_K(int* pValue, int nLow, int nHeight, int KPos)
 {
-
 	int mid = QuickSork(pValue, nLow, nHeight);
 	//包括a[mid]的右半边长度
 	int length_of_right = nHeight - mid + 1;

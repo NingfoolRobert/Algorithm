@@ -16,6 +16,12 @@
     <Filter Include="Greed">
       <UniqueIdentifier>{efe2a909-88da-4450-899f-1347f2835ffa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="List">
+      <UniqueIdentifier>{aa131746-9ea4-465a-974a-d35660f6da94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DP">
+      <UniqueIdentifier>{21ce1c25-e6df-438d-aad1-4872669bd678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -33,13 +39,7 @@
     <ClInclude Include="..\Greed Program\PaperMoneyChange.h">
       <Filter>Greed</Filter>
     </ClInclude>
-    <ClInclude Include="03-LengthOfLongestSubString.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="04-FindMedianSortedArrays.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="05-LongestPalindrome.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="HeapTest.h">
@@ -79,7 +79,13 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ListFunc.h">
-      <Filter>头文件</Filter>
+      <Filter>List</Filter>
+    </ClInclude>
+    <ClInclude Include="03-LengthOfLongestSubString.h">
+      <Filter>DP</Filter>
+    </ClInclude>
+    <ClInclude Include="05-LongestPalindrome.h">
+      <Filter>DP</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -93,7 +99,7 @@
       <Filter>头文件</Filter>
     </ClCompile>
     <ClCompile Include="ListFunc.cpp">
-      <Filter>头文件</Filter>
+      <Filter>List</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
