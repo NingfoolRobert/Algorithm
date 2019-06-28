@@ -298,8 +298,8 @@ int StrFunc::strstr_KMP(char* pszDest, const char* pszSrc)
 // 	}
 
 
-	int i = 0;
-	int j = 0;
+// 	int i = 0;
+// 	int j = 0;
 
 	while (i < strlen(pszDest) && j < strlen(pszSrc))
 	{
@@ -309,7 +309,7 @@ int StrFunc::strstr_KMP(char* pszDest, const char* pszSrc)
 			j++;
 		}
 		else
-			j = next[j];
+			j = pNext[j];
 	}
 
 	if (j == strlen(pszSrc))
@@ -457,17 +457,18 @@ void StrFunc::get_next(const char* pStr, int *nextArray)
 // 			}
 // 			next[i] = j;///没有相同，next[i]=-1
 // 		}
-// 	}	int i = 1, j = -1;
+// 	}	//int iLoop = 1;
+	int j = -1;
 	nextArray[0] = -1;
-	for (int i = 1; i < strlen(pStr) - 1; i++)
+	for (int iLoop = 1; iLoop < strlen(pStr) - 1; iLoop++)
 	{
-		while (j > -1 && pStr[j + 1] != pStr[i])
+		while (j > -1 && pStr[j + 1] != pStr[iLoop])
 			j = nextArray[j];
-		if (pStr[j+1] == pStr[i])
+		if (pStr[j +1] == pStr[iLoop])
 		{
 			j += 1;
 		}
-		nextArray[i] = j;
+		nextArray[iLoop] = j;
 		
 	}
 }

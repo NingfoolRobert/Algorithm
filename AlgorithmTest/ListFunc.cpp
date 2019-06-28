@@ -46,7 +46,7 @@ void SingleList::InsertHead(int nvalue)
 
 bool SingleList::InsertElementPos(int nvalue, int nPos)
 {
-
+	return 1;
 }
 
 bool SingleList::Delete(int nValue)
@@ -164,7 +164,7 @@ DoubleList::DoubleList(void)
 
 DoubleList::~DoubleList(void)
 {
-	DeleteAll();
+	DeleteAll(m_pHead);
 }
 
 void DoubleList::InsertTail(int nvalue)
@@ -228,7 +228,7 @@ int DoubleList::InsertElementPos(int nvalue, int nPos)
 
 bool DoubleList::DeleteElement(int nvalue)
 {
-
+	return false;
 }
 
 void DoubleList::DeleteAll(PDNODE pHead)
@@ -238,7 +238,7 @@ void DoubleList::DeleteAll(PDNODE pHead)
 
 PDNODE DoubleList::Reverse(PDNODE pHead)
 {
-
+	return nullptr;
 }
 
 void DoubleList::PrePrint(PDNODE pHead)
