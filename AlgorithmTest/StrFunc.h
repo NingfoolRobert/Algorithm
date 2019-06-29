@@ -30,7 +30,7 @@ public:
 	/*
 	["abc","cba","abba","aabb","adbd"]
 	*/
-	vector<vector<std::string>> strDivid(std::vector<char*> vecStr);
+	int strDivid(std::vector<char*> vecStr);
 public:
 	void memset_(void* pValue, int , int nSize);
 	void* memcpy_(char* pszDest, const char* pszSrc, size_t len);

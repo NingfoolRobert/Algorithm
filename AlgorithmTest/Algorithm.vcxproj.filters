@@ -101,5 +101,8 @@
     <ClCompile Include="ListFunc.cpp">
       <Filter>List</Filter>
     </ClCompile>
+    <ClCompile Include="StrFunc.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

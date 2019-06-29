@@ -48,7 +48,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	//std::cout << strf.myAtoi("2147483648") << std::endl;
 
 	//std::cout << strf.strstr_28("hello", "ll") << std::endl;
-	strf.strstr_KMP("abaabaabbabaaabaabbabaab", "abaabbabaab");
+	cout << strf.strstr_KMP("abaabaabbabaaabaabbabaab", "abaabbabaab") << endl;
 
 
 // 	SingleList List;
