@@ -4,6 +4,9 @@
 #include <iostream>
 #include <assert.h>
 #include <string>
+#include <algorithm>
+
+
 
 using namespace std;
 class StrFunc
@@ -27,7 +30,7 @@ public:
 	/*
 	["abc","cba","abba","aabb","adbd"]
 	*/
-	vector<vector<std::string>> strDivid(vector<char*> vecStr);
+	vector<vector<std::string>> strDivid(std::vector<char*> vecStr);
 public:
 	void memset_(void* pValue, int , int nSize);
 	void* memcpy_(char* pszDest, const char* pszSrc, size_t len);

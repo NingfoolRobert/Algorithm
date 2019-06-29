@@ -1,4 +1,5 @@
 ﻿#include "StrFunc.h"
+#include <set>
 
 
 
@@ -286,13 +287,28 @@ int StrFunc::strstr_KMP(char* pszDest, const char* pszSrc)
 
 }
 
-std::vector<std::vector<std::string>> StrFunc::strDivid(vector<char*> vecStr)
+int StrFunc::strDivid(std::vector<char*> vecStr)
 {
 	// 字符串排序后，引入Set表比较
 	vector<string> vecTmp;
 	
+	std::set<string> strCount;
+
+	char* pTmp = nullptr;
+
+	for (int iLoop = 0; iLoop < vecStr.size(); ++iLoop)
+	{
+		pTmp = vecStr[iLoop];
+		if(nullptr == pTmp)
+			continue;
+		int nLen = strlen(pTmp);
+		qsort(pTmp, 0, nLen - 1, greater<char>());
+		string str = pTmp;
+		strCount.insert(str);
+	}
 	
-	
+
+	return strCount.size();
 	
 }
 
