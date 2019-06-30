@@ -3,6 +3,14 @@
 
 
 
+int compCH(const void* argv1, const void* argv2)
+{
+	char* pch1 = (char*)argv1;
+	char* pch2 = (char*)argv2;
+
+	return pch1 - pch2;
+}
+
 
 char* StrFunc::strcat_(char* pszDest, const char* pszSrc)
 {
@@ -302,7 +310,7 @@ int StrFunc::strDivid(std::vector<char*> vecStr)
 		if(nullptr == pTmp)
 			continue;
 		int nLen = strlen(pTmp);
-		qsort(pTmp, 0, nLen - 1, greater<char>());
+		qsort(pTmp, 0, nLen - 1, compCH);
 		string str = pTmp;
 		strCount.insert(str);
 	}

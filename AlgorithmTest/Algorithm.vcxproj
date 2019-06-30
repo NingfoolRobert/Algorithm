@@ -45,7 +45,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -90,6 +90,7 @@
     <ClInclude Include="FindMax_K.h" />
     <ClInclude Include="HeapTest.h" />
     <ClInclude Include="ListFunc.h" />
+    <ClInclude Include="MinCutPalindrome.h" />
     <ClInclude Include="morris_Inorder.h" />
     <ClInclude Include="MutilVCA.h" />
     <ClInclude Include="stdafx.h" />
