@@ -22,6 +22,9 @@
     <Filter Include="DP">
       <UniqueIdentifier>{21ce1c25-e6df-438d-aad1-4872669bd678}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Tree">
+      <UniqueIdentifier>{7695c8b6-9b3a-48a8-83ca-0162c4ac03ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -52,9 +55,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="98-IsValidBST.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="morris_Inorder.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="StrFunc.h">
@@ -90,6 +90,9 @@
     <ClInclude Include="MinCutPalindrome.h">
       <Filter>DP</Filter>
     </ClInclude>
+    <ClInclude Include="morris_Inorder.h">
+      <Filter>Tree</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -98,14 +101,14 @@
     <ClCompile Include="Algorithm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="morris_Inorder.cpp">
-      <Filter>头文件</Filter>
-    </ClCompile>
     <ClCompile Include="ListFunc.cpp">
       <Filter>List</Filter>
     </ClCompile>
     <ClCompile Include="StrFunc.cpp">
       <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="morris_Inorder.cpp">
+      <Filter>Tree</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
