@@ -96,6 +96,9 @@
     <ClInclude Include="12-IntToRoman.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="76-MinWindows.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

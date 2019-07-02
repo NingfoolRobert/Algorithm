@@ -11,7 +11,9 @@
 //#include "BinarySearch.h"
 //#include "ListFunc.h"
 
-#include "MinCutPalindrome.h"
+//#include "MinCutPalindrome.h"
+
+#include "12-IntToRoman.h"
 
 void func()
 {
@@ -56,8 +58,9 @@ int _tmain(int argc, _TCHAR* argv[])
 // 	List.TestSingleList();
 
 	Solution solut;
-	solut.TestMinCut();
-
+	///solut.TestMinCut();
+	solut.TestIntToRoman();
+	solut.TestRomanToInt();
 	system("pause");
 
 	return 0;
