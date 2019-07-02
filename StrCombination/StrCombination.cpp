@@ -60,7 +60,7 @@ void StrCombination(char *pStr, int num, vector<char>&Result)
 //}
 int main()
 {
-	char test[4] = "abc";
+	char test[] = "abcde";
 	StrStoken(test);
 	
 

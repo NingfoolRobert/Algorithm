@@ -93,6 +93,9 @@
     <ClInclude Include="morris_Inorder.h">
       <Filter>Tree</Filter>
     </ClInclude>
+    <ClInclude Include="12-IntToRoman.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
