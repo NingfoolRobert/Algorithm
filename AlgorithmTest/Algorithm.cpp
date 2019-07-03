@@ -13,7 +13,8 @@
 
 //#include "MinCutPalindrome.h"
 
-#include "12-IntToRoman.h"
+//#include "12-IntToRoman.h"
+#include "50-Pow.h"
 
 void func()
 {
@@ -59,8 +60,9 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	Solution solut;
 	///solut.TestMinCut();
-	solut.TestIntToRoman();
-	solut.TestRomanToInt();
+// 	solut.TestIntToRoman();
+// 	solut.TestRomanToInt();
+	solut.TestmyPow();
 	system("pause");
 
 	return 0;
