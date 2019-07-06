@@ -119,5 +119,8 @@
     <ClCompile Include="morris_Inorder.cpp">
       <Filter>Tree</Filter>
     </ClCompile>
+    <ClCompile Include="BinarySearch.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

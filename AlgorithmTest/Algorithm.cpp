@@ -8,13 +8,13 @@
 /*#include "06-ZConvert.h"*/
 /*#include "05-LongestPalindrome.h"*/
 //#include "StrFunc.h"
-//#include "BinarySearch.h"
+#include "BinarySearch.h"
 //#include "ListFunc.h"
 
 //#include "MinCutPalindrome.h"
 
 //#include "12-IntToRoman.h"
-#include "50-Pow.h"
+//#include "50-Pow.h"
 
 void func()
 {
@@ -62,7 +62,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	///solut.TestMinCut();
 // 	solut.TestIntToRoman();
 // 	solut.TestRomanToInt();
-	solut.TestmyPow();
+	solut.TestSearch();
+
+	
 	system("pause");
 
 	return 0;

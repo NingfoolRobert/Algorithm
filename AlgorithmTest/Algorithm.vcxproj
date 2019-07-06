@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algorithm.cpp" />
+    <ClCompile Include="BinarySearch.cpp" />
     <ClCompile Include="ListFunc.cpp" />
     <ClCompile Include="morris_Inorder.cpp" />
     <ClCompile Include="stdafx.cpp">
