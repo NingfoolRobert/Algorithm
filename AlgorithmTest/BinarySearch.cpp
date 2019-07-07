@@ -87,7 +87,7 @@ void Solution::TestSearch()
 	listArray.push_back(3);
 	listArray.push_back(5);
 	listArray.push_back(5);
-	BinarySearchValueFirst(listArray, 0, 5, 3);
+	BinarySearchValueFirst(listArray, 3);
 }
 
 void Solution::TestLowerBound()

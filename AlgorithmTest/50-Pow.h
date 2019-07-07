@@ -26,6 +26,7 @@ double Solution::myPow(double dx, int n)
 // 		return 1;
 // 
 // 	return myPow(myPow(dx, n / 2), 2)*(abs(n) % 2 == 1 ? nFlag : 1);
+
 	double ans = 1;
 	long long llIndex = n;
 	double current_value = dx;

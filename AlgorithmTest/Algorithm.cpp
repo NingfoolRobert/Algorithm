@@ -8,13 +8,16 @@
 /*#include "06-ZConvert.h"*/
 /*#include "05-LongestPalindrome.h"*/
 //#include "StrFunc.h"
-#include "BinarySearch.h"
+//#include "BinarySearch.h"
 //#include "ListFunc.h"
 
 //#include "MinCutPalindrome.h"
 
 //#include "12-IntToRoman.h"
 //#include "50-Pow.h"
+
+#include "14-longestCommonPrefix.h"
+
 
 void func()
 {
@@ -58,13 +61,14 @@ int _tmain(int argc, _TCHAR* argv[])
 // 	SingleList List;
 // 	List.TestSingleList();
 
-	Solution solut;
+	//Solution solut;
 	///solut.TestMinCut();
 // 	solut.TestIntToRoman();
 // 	solut.TestRomanToInt();
-	solut.TestSearch();
-
-	
+// 	solut.TestSearch();
+	LCP lcpTmp;
+	lcpTmp.TestLCP();
+		
 	system("pause");
 
 	return 0;
