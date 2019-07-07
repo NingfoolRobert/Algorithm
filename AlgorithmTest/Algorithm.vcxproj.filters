@@ -105,6 +105,9 @@
     <ClInclude Include="14-longestCommonPrefix.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="15-threeSum.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

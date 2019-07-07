@@ -16,8 +16,8 @@
 //#include "12-IntToRoman.h"
 //#include "50-Pow.h"
 
-#include "14-longestCommonPrefix.h"
-
+//#include "14-longestCommonPrefix.h"
+#include "15-threeSum.h"
 
 void func()
 {
@@ -66,9 +66,13 @@ int _tmain(int argc, _TCHAR* argv[])
 // 	solut.TestIntToRoman();
 // 	solut.TestRomanToInt();
 // 	solut.TestSearch();
-	LCP lcpTmp;
-	lcpTmp.TestLCP();
+// 	LCP lcpTmp;
+// 	lcpTmp.TestLCP();
 		
+
+	CThreeSum thre;
+	thre.TestThreeSum();
+
 	system("pause");
 
 	return 0;

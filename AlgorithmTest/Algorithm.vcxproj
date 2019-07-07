@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -86,6 +86,7 @@
     <ClInclude Include="11-maxArea.h" />
     <ClInclude Include="12-IntToRoman.h" />
     <ClInclude Include="14-longestCommonPrefix.h" />
+    <ClInclude Include="15-threeSum.h" />
     <ClInclude Include="50-Pow.h" />
     <ClInclude Include="76-MinWindows.h" />
     <ClInclude Include="98-IsValidBST.h" />
