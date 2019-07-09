@@ -71,7 +71,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		
 
 	CThreeSum thre;
-	thre.TestThreeSum();
+	thre.TestThreeSum_0();
 
 	system("pause");
 

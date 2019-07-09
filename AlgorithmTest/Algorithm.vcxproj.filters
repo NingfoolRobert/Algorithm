@@ -108,6 +108,9 @@
     <ClInclude Include="15-threeSum.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="02-AddTwoSumNumbers.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
