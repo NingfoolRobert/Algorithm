@@ -119,7 +119,6 @@ std::vector<std::vector<int>> CThreeSum::threeSum_0(vector<int>& nums)
 	int nfirst = 0;
 	if (nums[0] <= 0 && nums[nSize - 1] >= 0)
 	{
-
 		while (nfirst < nSize -2)
 		{
 			int nCurrent = nfirst + 1;
@@ -131,7 +130,9 @@ std::vector<std::vector<int>> CThreeSum::threeSum_0(vector<int>& nums)
 			{
 				if (nums[nfirst] > 0 && nums[nLast] > 0)
 					break;
-				if (nums[nfirst] + nums[nCurrent] + nums[nLast] == 0)
+				int nSum = nums[nfirst] + nums[nCurrent] + nums[nLast];
+
+				if (nSum == 0)
 				{
 					MatchNums.push_back(nums[nfirst]);
 					MatchNums.push_back(nums[nCurrent]);
@@ -143,7 +144,7 @@ std::vector<std::vector<int>> CThreeSum::threeSum_0(vector<int>& nums)
 				}
 				else
 				{
-					if (nums[nfirst] + nums[nCurrent] + nums[nLast] < 0)
+					if (nSum < 0)
 					{
 						while (nums[nCurrent++] == nums[nCurrent] && nCurrent < nLast);
 					}
@@ -153,7 +154,7 @@ std::vector<std::vector<int>> CThreeSum::threeSum_0(vector<int>& nums)
 					}
 				}
 			}
-			while (nums[nfirst++] == nums[nfirst] /*&& (nums[nfirst] == nums[nfirst+1])*/ && nfirst < nSize - 2);
+			while (nums[nfirst++] == nums[nfirst] && nfirst < nSize - 2);
 			
 		}
 	}
@@ -166,22 +167,8 @@ void CThreeSum::TestThreeSum_0()
 
 #pragma region TestCase
 // 	int arrValue[] = {
-// 		82597,-9243,62390,83030,-97960,-26521,-61011,83390,-38677,12333,75987,46091,
-// 			83794,
-// 			19355,
-// 			-71037,
-// 			-6242,
-// 			-28801,
-// 			324,
-// 			1202,
-// 			-90885,
-// 			-2989,
-// 			-95597,
-// 			-34333,
-// 			35528,
-// 			5680,
-// 			89093,
-// 			-90606,
+// 		82597,-9243,62390,83030,-97960,-26521,-61011,83390,-38677,12333,75987,46091,83794,19355,-71037,-6242,
+// 		-28801,324,1202,-90885,-2989,-95597,-34333,35528,5680,89093,-90606,
 // 			50360,
 // 			-29393,
 // 			-27012,
