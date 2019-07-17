@@ -224,6 +224,7 @@ int DoubleList::InsertElementPos(int nvalue, int nPos)
 	pNode->pNext = pNext;
 
 	pNext->pPre = pNode;
+	return 0;
 }
 
 bool DoubleList::DeleteElement(int nvalue)

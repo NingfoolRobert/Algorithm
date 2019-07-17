@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "morris_Inorder.h"
-
+#include <math.h>
 
 
 CBinarySTree::CBinarySTree(void)
@@ -275,5 +275,6 @@ int CBinarySTree::GetHeight(TreeNode* pTreeNode, int nLevel, bool &bResult)
 	{
 		bResult = false;
 	}
-	return max(nleftHeight, nRightHeigth);
+	//return max(nleftHeight, nRightHeigth);
+	return 0;
 }

@@ -30,11 +30,21 @@ int Add_n(int n)
 	return i;
 }
 
+class A
+{
+public: 
+	A(void) { printf("constuctor A ]\n"); }
+protected:
+	virtual ~A(void) { printf("Deconstructor A \n"); }
+
+private:
+	int m_nval;
+};
+
 
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-
 
 // 	int nTest = Add_n(10);
 // 	std::cout << nTest << std::endl;
@@ -69,7 +79,9 @@ int _tmain(int argc, _TCHAR* argv[])
 // 	LCP lcpTmp;
 // 	lcpTmp.TestLCP();
 		
-
+	std::string str("ningbeifei");
+	std::string strTest(str, 1, 5);
+	cout << strTest << endl;
 	CThreeSum thre;
 	thre.TestThreeSum_0();
 
