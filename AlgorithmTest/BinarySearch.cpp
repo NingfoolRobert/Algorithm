@@ -90,6 +90,134 @@ void Solution::TestSearch()
 	BinarySearchValueFirst(listArray, 3);
 }
 
+/*
+	查找第一个与key相等的元素，也就是说等于查找key值的元素有很多，返回这些元素最左边的元素的下标。
+*/
+int Solution::BinarySearchLeft(std::vector<int>Array, int nval)
+{
+	int nLeft = 0;
+	int nRight = Array.size() - 1;
+	while ( nLeft <= nRight)
+	{
+		int nMid = nLeft + (nRight - nLeft) / 2;
+		if (Array[nMid] >= nval)
+			nRight = nMid - 1;
+		else
+			nLeft = nMid - 1;
+	}
+	if (nLeft < Array.size() -1 && Array[nLeft] == nval)
+	{
+		return nLeft;
+	}
+	return -1;
+}
+
+/*
+	查找最后一个与key相等的元素，也就是等于查找key值的元素有好多个，返回这些元素最右边元素的下标。
+*/
+int Solution::BinarySearchRigth(std::vector<int>Array, int nval)
+{
+	int nLeft = 0;
+	int nRight = Array.size() - 1;
+	
+	while (nLeft <= nRight)
+	{
+		int nMid = nLeft + (nRight - nLeft) / 2;
+		if (Array[nMid] > nval)
+			nRight = nMid - 1;
+		else
+			nLeft = nMid + 1;
+	}
+	
+	if (nRight < Array.size() && Array[nRight] == nval)
+		return nLeft;
+
+	return -1;
+
+}
+
+/*
+//找第一个等于或者大于key的元素，查找第一个等于或者大于key的元素，也就是说查找key值的元素有好多个，
+	//返回这些元素最左边元素的下标；如果没有等于key值的元素，则返回大于key的最左边元素的下标。
+*/
+int Solution::BinarySearchHightBound(std::vector<int>Array, int nval)
+{
+	int nLeft = 0;
+	int nRight = Array.size() - 1;
+
+	if (Array[nRight] < nval)
+		return -1;
+	
+	while (nLeft <= nRight)
+	{
+		int nMid = nLeft + (nRight - nLeft) / 2;
+		if (Array[nMid] >= nval)
+			nRight = nMid - 1;
+		else
+			nLeft = nMid + 1;
+	}
+	return nLeft;
+}
+
+/*
+	查找第一个大于key的元素。查找第一个大于key的值，也就是说返回大于key的最左边元素的下标
+*/
+int Solution::BinarySearchfirstGreatVal(std::vector<int>Array, int nval)
+{
+	int nLeft = 0;
+	int nRight = Array.size() - 1;
+	
+	if (Array[nRight] < nval)
+		return -1;
+	while (nLeft <= nRight)
+	{
+		int nMid = nLeft + (nRight - nLeft) / 2;
+		if (Array[nMid] >= nval)
+			nLeft = nMid - 1;
+		else
+			nRight = nMid + 1;
+	}
+	return nLeft;
+}
+
+/*查找最后一个等于或者小于key的元素。查找最后一个等于或者小于key的元素，
+也就是说等于查找key值有很多，返回这些元素最右边的元素的下标；如果没有等于key值的元素，则返回小于key值的最右边元素的下标。*/
+int Solution::BinarySearchLastLessAEqulVal(std::vector<int>Array, int nval)
+{
+	int nLeft = 0;
+	int nRight = Array.size() - 1;
+
+	if (Array[nLeft] > nval)
+		return -1;
+	while (nLeft <= nRight)
+	{
+		int nMid = nLeft + (nRight - nLeft) / 2;
+		if (Array[nMid] > nval)
+			nRight = nMid - 1;
+		else
+			nLeft = nMid + 1;
+	}
+	return nRight;
+}
+
+//查找最后一个小于Key 的值
+int Solution::BinarySearchLastLessVal(std::vector<int>Array, int nval)
+{
+	int nLeft = 0;
+	int nRight = Array.size() - 1;
+	if (Array[nLeft] >= nval)
+		return -1;
+	while (nLeft <= nRight)
+	{
+		int nMid = nLeft + (nRight - nLeft) / 2;
+		if (Array[nMid] >= nval)
+			nRight = nMid - 1;
+		else
+			nLeft = nMid + 1;
+	}
+	return nRight;
+}
+
 void Solution::TestLowerBound()
 {
 	Solution solu;

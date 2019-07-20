@@ -44,10 +44,13 @@ std::vector<std::string> SolutionletterCombinations::letterCombinations(std::str
 		string strTmp = digits.substr(iLoop, 1);
 		string str = strMap[strTmp];
 		int nlen = str.length();
-		strLetter += strTmp;
 		for (int i = 0; i < nlen; ++i)
 		{
-			
+			char p = str.at(i);
+			for (size_t i = 0; i < 10; i++)
+			{
+
+			}
 		}
 
 	}
