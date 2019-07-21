@@ -117,6 +117,9 @@
     <ClInclude Include="Dijkstra.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Prim.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
