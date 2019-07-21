@@ -91,11 +91,13 @@
     <ClInclude Include="12-IntToRoman.h" />
     <ClInclude Include="14-longestCommonPrefix.h" />
     <ClInclude Include="15-threeSum.h" />
+    <ClInclude Include="16-letterCombinations.h" />
     <ClInclude Include="50-Pow.h" />
     <ClInclude Include="76-MinWindows.h" />
     <ClInclude Include="98-IsValidBST.h" />
     <ClInclude Include="BinarySearch.h" />
     <ClInclude Include="CommonHelper.h" />
+    <ClInclude Include="Dijkstra.h" />
     <ClInclude Include="FindMax_K.h" />
     <ClInclude Include="HeapTest.h" />
     <ClInclude Include="ListFunc.h" />

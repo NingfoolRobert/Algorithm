@@ -111,6 +111,12 @@
     <ClInclude Include="02-AddTwoSumNumbers.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="16-letterCombinations.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dijkstra.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

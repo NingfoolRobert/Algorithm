@@ -48,7 +48,7 @@ public:
 
 
 	//查找最后一个小于key的元素。查找最后一个小于key的元素，也就是说返回小于key的最右边的元素下标。
-	int BinarySearchLastLessVal(std::vector<int>Array, int nval)
+	int BinarySearchLastLessVal(std::vector<int>Array, int nval);
 
 	
 
