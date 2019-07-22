@@ -120,6 +120,9 @@
     <ClInclude Include="Prim.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="92-findKthLargest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

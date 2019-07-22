@@ -94,6 +94,7 @@
     <ClInclude Include="16-letterCombinations.h" />
     <ClInclude Include="50-Pow.h" />
     <ClInclude Include="76-MinWindows.h" />
+    <ClInclude Include="92-findKthLargest.h" />
     <ClInclude Include="98-IsValidBST.h" />
     <ClInclude Include="BinarySearch.h" />
     <ClInclude Include="CommonHelper.h" />
