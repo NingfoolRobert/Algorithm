@@ -29,7 +29,7 @@ public:
 	PNODE	Reverse(PNODE pHead);
 	PNODE	Reverse_no(PNODE pHead);
 	void	DeleteAll(PNODE pHead);
-
+	PNODE	ReverseBetween(PNODE pHead, int nStart, int nEnd);
 	void	Print(PNODE pHead);
 
 public:

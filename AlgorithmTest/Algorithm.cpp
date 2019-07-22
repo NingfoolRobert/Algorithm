@@ -9,7 +9,7 @@
 /*#include "05-LongestPalindrome.h"*/
 //#include "StrFunc.h"
 //#include "BinarySearch.h"
-//#include "ListFunc.h"
+#include "ListFunc.h"
 
 //#include "MinCutPalindrome.h"
 
@@ -68,8 +68,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	//cout << strf.strstr_KMP("abaabaabbabaaabaabbabaab", "abaabbabaab") << endl;
 
 
-// 	SingleList List;
-// 	List.TestSingleList();
+	SingleList List;
+	List.TestSingleList();
 
 	//Solution solut;
 	///solut.TestMinCut();

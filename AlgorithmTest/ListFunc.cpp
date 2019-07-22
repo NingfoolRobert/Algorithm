@@ -125,6 +125,27 @@ void SingleList::DeleteAll( PNODE pHead )
 	}
 }
 
+PNODE SingleList::ReverseBetween(PNODE pHead, int nStart, int nEnd)
+{
+	PNODE pNode = new NODE(-1);
+	PNODE pPre = pNode;
+	pNode->pNext = pHead;
+	for (int i = 0; i < nStart - 1; ++i)
+	{
+		pPre = pPre->pNext;
+	}
+	
+	PNODE pCur = pPre->pNext;
+	for (int i = nStart; i < nEnd; ++i)
+	{
+		PNODE pTmp = pCur->pNext;
+		pCur->pNext = pTmp->pNext;
+		pTmp->pNext = pPre->pNext;
+		pPre->pNext = pTmp;
+	}
+	return pNode->pNext;
+}
+
 void SingleList::Print(PNODE pHead)
 {
 	PNODE pNode = pHead;
@@ -151,6 +172,13 @@ void SingleList::TestSingleList()
 	
 	PNODE pRet = Reverse_no(pReveseNode);
 	cout << "Reverse_no..." << endl;
+
+	Print(pRet);
+
+
+	PNODE pRb = ReverseBetween(pRet, 2, 4);
+	cout << "ReverseBetween..." << endl;
+
 	Print(pRet);
 
 }
