@@ -288,6 +288,7 @@ int StrFunc::strstr_KMP(char* pszDest, const char* pszSrc)
 			j = pNext[j];
 	}
 
+	delete pNext;
 	if (j == strlen(pszSrc))
 		return i - j;
 	else
