@@ -1,19 +1,22 @@
 #pragma once
 
 #include <iostream>
+#include <algorithm>
 #include <math.h>
 #include <map>
 #include <vector>
 
+/*Prim算法：
+ 最小生成树
+
+ 思想： 设图G 顶点集合为U ，首先任意选择图G中的一点作为起始点a，将该点加入集合V，再从集合U-V中找到另一点b使得点b到V中任意一点的权值最小，
+ 此时将b点也加入集合V，以此类推，现在的集合V={a,b} ,在从集合U-V中找到另一点c 使得c到v中任意点的全职最小，此时将c加入集合V，
+ 直至所有顶点全部被加入V，此时就构建出了一颗MST。因为有N个顶点，所以该MST就有N-1条边，每一次向集合V中加入一个点，就意味着找到一条MST的边。
+
+
+*/
 
 using namespace std;
-
-class CPrim
-{
-public:
-protected:
-private:
-};
 
 #define MAX_INT 999999
 pair<int, int> GetShortestEdge(const vector<vector<int> >& Graph, const vector<bool>& isIncluded)//求当前在MST之外距离MST最近的点的id
@@ -25,7 +28,8 @@ pair<int, int> GetShortestEdge(const vector<vector<int> >& Graph, const vector<b
 	{
 		if (!isIncluded[i]) continue;//如果不在MST里面，则跳过
 		for (int j = 0; j < Graph.size(); j++) //j为MST外的点
-			if (!isIncluded[j] && Graph[i][j] < minDist) { //找到不在MST内但是距离MST最近的点
+			if (!isIncluded[j] && Graph[i][j] < minDist) 
+			{ //找到不在MST内但是距离MST最近的点
 				minID = j;
 				minDist = Graph[i][j];
 				minEdge = make_pair(i, j);

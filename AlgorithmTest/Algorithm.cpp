@@ -9,7 +9,7 @@
 /*#include "05-LongestPalindrome.h"*/
 //#include "StrFunc.h"
 //#include "BinarySearch.h"
-#include "ListFunc.h"
+//#include "ListFunc.h"
 
 //#include "MinCutPalindrome.h"
 
@@ -17,7 +17,7 @@
 //#include "50-Pow.h"
 
 //#include "14-longestCommonPrefix.h"
-#include "15-threeSum.h"
+//#include "15-threeSum.h"
 
 void func()
 {
@@ -67,9 +67,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	//std::cout << strf.strstr_28("hello", "ll") << std::endl;
 	//cout << strf.strstr_KMP("abaabaabbabaaabaabbabaab", "abaabbabaab") << endl;
 
-
-	SingleList List;
-	List.TestSingleList();
+// 
+// 	SingleList List;
+// 	List.TestSingleList();
 
 	//Solution solut;
 	///solut.TestMinCut();
@@ -79,11 +79,11 @@ int _tmain(int argc, _TCHAR* argv[])
 // 	LCP lcpTmp;
 // 	lcpTmp.TestLCP();
 		
-	std::string str("ningbeifei");
-	std::string strTest(str, 1, 5);
-	cout << strTest << endl;
-	CThreeSum thre;
-	thre.TestThreeSum_0();
+// 	std::string str("ningbeifei");
+// 	std::string strTest(str, 1, 5);
+// 	cout << strTest << endl;
+// 	CThreeSum thre;
+// 	thre.TestThreeSum_0();
 
 	system("pause");
 
