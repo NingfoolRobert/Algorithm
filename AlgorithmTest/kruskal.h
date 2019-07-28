@@ -7,6 +7,24 @@
 #include <algorithm>
 
 
+/*
+Kruskal 
+设计思想：
+	1）按照长度，从小到大排序
+	2) 再不构成回路情况下，由小到大选择最短路径
+
+伪代码：
+	1. 树从小到大排序E
+	2. T <- 空集
+	3. repeat 
+		e<- E 中的最短边
+		if e 两端点不在同一连通分支
+		then  T <- T &{e}
+		E <- E - {e}
+	   unit T 包含n-1条边
+
+*/
+
 #define GRAPH_MAX_NODE 1000;
 typedef struct stEdge
 {
@@ -88,7 +106,7 @@ int CKruskal::Init()
 //加入团体，并查集的一部分
 void CKruskal::Unit(int x, int y)
 {
-	m_vecfather[finds(y)] = finds(x);
+	m_vecfather[finds(y)] = finds(x);	//连通标志
 }
 
 int CKruskal::Kruskal(int& nTotalWeight)
