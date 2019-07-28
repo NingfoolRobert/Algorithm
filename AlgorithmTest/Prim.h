@@ -37,6 +37,8 @@ pair<int, int> GetShortestEdge(const vector<vector<int> >& Graph, const vector<b
 	}
 	return minEdge;
 }
+
+
 vector<pair<int, int> > Prim(const vector<vector<int> >& Graph, vector<bool>& isIncluded) {
 	vector<pair<int, int> > MST;
 	isIncluded[0] = true;
