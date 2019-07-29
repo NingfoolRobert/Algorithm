@@ -212,16 +212,16 @@ PNODE SingleList::SortList(PNODE pHead)
 	
 	PNODE pNode = pHead;
 	
-	for (int i = 0; i < nSize; i <<= 1)
+	for (int i = 1; i <= nSize; i <<= 1)
 	{
 		PNODE pCur = pHead;
 		auto pTail = &DummyHead;
 		while (pCur)
 		{
 			PNODE pLeft = pCur;
-			PNODE pRight = Cut(pCur, nSize);
+			PNODE pRight = Cut(pCur, i);
 			
-			pCur = Cut(pRight, nSize);
+			pCur = Cut(pRight, i);
 			pTail->pNext = MergeTwoLists(pLeft, pRight);
 			while (pTail->pNext)
 				pTail = pTail->pNext;
@@ -268,7 +268,10 @@ PNODE SingleList::Cut(PNODE pHead, int nSize)
 	
 	if (nSize)  return nullptr;
 	
-	return pNode;
+	auto next = pNode->pNext;
+	pNode->pNext = nullptr;
+
+	return next;
 }
 
 //获取链表长度
