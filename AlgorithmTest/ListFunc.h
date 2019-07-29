@@ -3,13 +3,18 @@
 #include <iostream>
 #include <math.h>
 #include <vector>
-
+#include <queue>
+//#include <priority_queue>
 
 using namespace std;
 
 
 typedef struct Node
 {
+	friend bool operator<(const Node &pnode1, const Node &pnode2)
+	{
+		return pnode1.nValue > pnode2.nValue;
+	}
 	int  nValue;
 	Node*	pNext;
 	Node(int _value):nValue(_value),pNext(nullptr){}
@@ -31,6 +36,8 @@ public:
 	void	DeleteAll(PNODE pHead);
 	PNODE	ReverseBetween(PNODE pHead, int nStart, int nEnd);
 	void	Print(PNODE pHead);
+
+	PNODE	MergeKLists(vector<PNODE>& lists);
 
 public:
 	void TestSingleList();

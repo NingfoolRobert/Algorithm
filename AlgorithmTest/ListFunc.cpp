@@ -155,6 +155,29 @@ void SingleList::Print(PNODE pHead)
 		pNode = pNode->pNext;
 	}
 }
+//合并K个有序链表
+
+PNODE SingleList::MergeKLists(vector<PNODE>& lists)
+{
+	std::priority_queue<PNODE> pri_queue;
+	for (int i = 0; i < lists.size(); ++i)
+	{
+		pri_queue.push(lists[i]);
+	}
+	
+	PNODE pNewHead = new NODE(0);
+	PNODE pTmp = pNewHead;
+	while (!pri_queue.empty())
+	{
+		PNODE pTop = pri_queue.top();
+		pTmp->pNext = pTop;
+		pri_queue.pop();
+		if (pTop->pNext != nullptr)
+			pri_queue.push(pTop->pNext);
+		pTmp = pTmp->pNext;
+	}
+	return pNewHead->pNext;
+}
 
 void SingleList::TestSingleList()
 {
