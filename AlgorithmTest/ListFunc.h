@@ -39,10 +39,14 @@ public:
 	
 	PNODE	MergeKLists(vector<PNODE>& lists);	//23题
 	PNODE	MergeTwoLists(PNODE l1, PNODE l2);	//21题
+	PNODE	SortList(PNODE pHead);				//146题  ---在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序。
 
 public:
 	void TestSingleList();
 protected:
+
+	PNODE  Cut(PNODE pHead, int nSize);
+	int	   GetListLen(PNODE pHead);
 private:
 	PNODE	m_pHead;
 };

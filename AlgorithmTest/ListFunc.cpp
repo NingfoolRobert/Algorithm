@@ -202,6 +202,33 @@ PNODE SingleList::MergeTwoLists(PNODE l1, PNODE l2)
 	
 	return pHead->pNext;
 }
+//在 O(nlogn) 时间复杂度和常数级空间复杂度下，对链表进行排序
+PNODE SingleList::SortList(PNODE pHead)
+{
+	NODE DummyHead(0);  
+
+	DummyHead.pNext = pHead;
+	int nSize = GetListLen(pHead);
+	
+	PNODE pNode = pHead;
+	
+	for (int i = 0; i < nSize; i <<= 1)
+	{
+		PNODE pCur = pHead;
+		auto pTail = &DummyHead;
+		while (pCur)
+		{
+			PNODE pLeft = pCur;
+			PNODE pRight = Cut(pCur, nSize);
+			
+			pCur = Cut(pRight, nSize);
+			pTail->pNext = MergeTwoLists(pLeft, pRight);
+			while (pTail->pNext)
+				pTail = pTail->pNext;
+		}
+	}
+	return DummyHead.pNext;
+}
 
 void SingleList::TestSingleList()
 {
@@ -228,6 +255,33 @@ void SingleList::TestSingleList()
 
 	Print(pRet);
 
+}
+
+//返回  nSize长度后的指针
+PNODE SingleList::Cut(PNODE pHead, int nSize)
+{
+	PNODE pNode = pHead;
+	while (pNode && --nSize)
+	{
+		pNode = pNode->pNext;
+	}
+	
+	if (nSize)  return nullptr;
+	
+	return pNode;
+}
+
+//获取链表长度
+int SingleList::GetListLen(PNODE pHead)
+{
+	PNODE pNode = pHead;
+	int nLen = 0;
+	while (pHead)
+	{
+		pHead = pHead->pNext;
+		++nLen;
+	}
+	return nLen;
 }
 
 //////////////////////////////////////////////////////////////////////////
