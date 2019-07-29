@@ -178,6 +178,30 @@ PNODE SingleList::MergeKLists(vector<PNODE>& lists)
 	}
 	return pNewHead->pNext;
 }
+//合并两个有序链表
+PNODE SingleList::MergeTwoLists(PNODE l1, PNODE l2)
+{
+	PNODE pHead = new NODE(0);
+	PNODE pNode = pHead;
+	pHead->pNext = pNode;
+	while (l1 && l2)
+	{
+		if (l1->nValue < l2->nValue)
+		{
+			pNode->pNext = l1;
+			l1 = l1->pNext;
+		}
+		else
+		{
+			pNode->pNext = l2;
+			l2 = l2->pNext;
+		}
+		pNode = pNode->pNext;
+	}
+	pNode->pNext = l1 ? l1 : l2;
+	
+	return pHead->pNext;
+}
 
 void SingleList::TestSingleList()
 {

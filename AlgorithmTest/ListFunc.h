@@ -36,8 +36,9 @@ public:
 	void	DeleteAll(PNODE pHead);
 	PNODE	ReverseBetween(PNODE pHead, int nStart, int nEnd);
 	void	Print(PNODE pHead);
-
-	PNODE	MergeKLists(vector<PNODE>& lists);
+	
+	PNODE	MergeKLists(vector<PNODE>& lists);	//23Ã‚
+	PNODE	MergeTwoLists(PNODE l1, PNODE l2);	//21Ã‚
 
 public:
 	void TestSingleList();
