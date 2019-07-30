@@ -50,6 +50,8 @@ public:
 
 	int GetMinHeigth(TreeNode* root);
 
+	int GetMaxHeigth(TreeNode* root);	//104
+
 public:
 	//判断二叉树是不是平衡二叉树
 	bool isBalance(TreeNode* pTreeNode);

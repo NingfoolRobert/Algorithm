@@ -349,6 +349,29 @@ int CBinarySTree::GetMinHeigth(TreeNode* root)
 	return minDepth + 1;
 }
 
+//二叉树的最大深度
+int CBinarySTree::GetMaxHeigth(TreeNode* root)
+{
+	// 	if (root == nullptr)
+	// 		return 0;
+	// 	if (root->pLeft == nullptr && root->pRight == nullptr)
+	// 		return 1;
+	// 	int nMaxHeight = INT_MIN;
+	// 	
+	// 	if (root->pRight != nullptr)
+	// 		nMaxHeight = max(GetMaxHeigth(root->pRight), nMaxHeight);
+	// 	else if (root->pLeft != nullptr)
+	// 		nMaxHeight = max(GetMaxHeigth(root->pLeft), nMaxHeight);
+	// 	
+	// 	return nMaxHeight + 1;
+	if (root == nullptr)
+	 		return 0;
+
+	int nLeft = GetMaxHeigth(root->pLeft);
+	int nRigth = GetMaxHeigth(root->pRight);
+	return max(nLeft, nRigth) + 1;
+}
+
 bool CBinarySTree::isBalance(TreeNode* pTreeNode)
 {
 	bool bResult = true;
