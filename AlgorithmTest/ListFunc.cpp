@@ -311,6 +311,7 @@ PNODE SingleList::InsertSortList(PNODE pHead)
 		}
 		pCur = pTmp;
 	}
+	return pHeadNode;
 }
 
 void SingleList::TestSingleList()

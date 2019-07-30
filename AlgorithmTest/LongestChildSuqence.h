@@ -8,7 +8,7 @@
 using namespace std;
 
 
-class CSoloution
+class CSoloution		//300-最长上升子序列 
 {
 public:
 	CSoloution();
@@ -16,7 +16,6 @@ public:
 public:
 	int LongestChildSquence(std::vector<int>&vecNumbers);
 	int LongestChildSquence_BinarySearch(std::vector<int>&vecNumbers);
-private:
 
 };
 
@@ -57,19 +56,26 @@ int CSoloution::LongestChildSquence_BinarySearch(std::vector<int>&vecNumbers)
 	int nResult = 0;
 	
 	std::vector<int> dp;
-	dp.resize(nSize);
-	
+	dp[0] = vecNumbers[0];
+	int nLen = 1;
 	int nMax = INT_MIN;
-	for (int i = 0; i < nSize; ++i)
+	for (int i = 1; i < nSize; ++i)
 	{
-		//int j = lower_bound(dp.begin(), dp.end(), vecNumbers[i]);
-		std::vector<int>::iterator it = lower_bound(vecNumbers.begin(), vecNumbers.end(), vecNumbers[i]);
-		int nRet = it - vecNumbers.begin();
-		dp[i] = nRet + 1;
-		if (vecNumbers[i] > nMax)
-			nMax = vecNumbers[i];
+		if (vecNumbers[i] > dp[nLen])
+			dp[++nLen] = vecNumbers[i];
+		else
+		{
+			std::vector<int>::iterator it = lower_bound(dp.begin(), dp.end(), vecNumbers[i]);
+// 			int nRet = it - vecNumbers.begin();
+// 			dp[i] = nRet + 1;
+// 			if (vecNumbers[i] > nMax)
+// 				nMax = vecNumbers[i];
+			int nPos = it - dp.begin();
+			dp[nPos] = vecNumbers[i];
+		}
+
 	}
 
-
+	return nLen;
 }
 
