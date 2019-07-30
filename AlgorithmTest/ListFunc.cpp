@@ -261,20 +261,56 @@ PNODE SingleList::InsertSortList(PNODE pHead)
 // 	}
 // 	return stNode.pNext;
 
-	NODE  dummyNode(0);
-	dummyNode.pNext = pHead;
-	while (pHead != nullptr)
+// 	NODE  dummyNode(0);
+// 	dummyNode.pNext = pHead;
+// 	while (pHead != nullptr)
+// 	{
+// 		PNODE pCur = &dummyNode;
+// 		PNODE pnext = pHead->pNext;
+// 		while (pCur->pNext != nullptr && pCur->pNext->nValue < pHead->nValue)
+// 			pCur = pCur->pNext;
+// 		
+// 		pHead->pNext = pCur->pNext;
+// 		pCur->pNext = pHead;
+// 		pHead = pnext;
+// 	}
+// 	return dummyNode.pNext;
+
+	PNODE pCur = pHead->pNext;
+	PNODE pHeadNode = pHead;
+	PNODE pTail = pHead;
+	
+	while (pCur != nullptr)
 	{
-		PNODE pCur = &dummyNode;
-		PNODE pnext = pHead->pNext;
-		while (pCur->pNext != nullptr && pCur->nValue < pHead->nValue)
-			pCur = pCur->pNext;
-		
-		pHead->pNext = pCur->pNext;
-		pCur->pNext = pHead;
-		pHead = pnext;
+		PNODE pTmp = pCur->pNext;
+		if (pHeadNode->nValue > pCur->nValue)
+		{
+			pCur->pNext = pHeadNode;
+			pHeadNode = pCur;
+		}
+		else if (pTail->nValue <= pCur->nValue)
+		{
+			pTail->pNext = pCur;
+			pTail = pCur;
+		}
+		else
+		{
+			PNODE pSq = pHeadNode;
+			while (pSq != pTail)
+			{
+				if (pSq->pNext->nValue > pCur->nValue)
+				{
+					pCur->pNext = pSq->pNext;
+					pSq->pNext = pCur;
+					break;
+				}
+				else
+					pSq = pSq->pNext;
+
+			}
+		}
+		pCur = pTmp;
 	}
-	return dummyNode.pNext;
 }
 
 void SingleList::TestSingleList()
