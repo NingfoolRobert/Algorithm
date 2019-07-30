@@ -2,6 +2,13 @@
 
 #include <iostream>
 #include <vector>
+#include <stack>
+#include <map>
+#include <algorithm>
+#include <list>
+
+
+
 
 using namespace std;
 
@@ -35,6 +42,12 @@ public:
 	TreeNode* ReverseEdge(TreeNode* pTreeNode);
 
 	void Print(TreeNode* pTreeNode);
+
+	//迭代算法
+	std::vector<int> preorderTraversal(TreeNode* root);
+	std::vector<int> inorderTraversal(TreeNode* root);
+	std::vector<int> postorderTraversal(TreeNode* root);  //145
+
 public:
 	//判断二叉树是不是平衡二叉树
 	bool isBalance(TreeNode* pTreeNode);

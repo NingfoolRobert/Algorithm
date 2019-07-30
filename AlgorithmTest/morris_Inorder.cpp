@@ -252,6 +252,84 @@ void CBinarySTree::Print(TreeNode* pTreeNode)
 	std::cout << pTreeNode->_value << std::endl;
 }
 
+//迭代前序遍历
+std::vector<int> CBinarySTree::preorderTraversal(TreeNode* root)
+{
+	std::vector<int> vecPreOrder;
+	std::stack<TreeNode*> stTree;
+	if (root == nullptr)
+		return vecPreOrder;
+	stTree.push(root);
+	while (!stTree.empty())
+	{
+		TreeNode* pNode = stTree.top();
+		vecPreOrder.push_back(pNode->_value);
+		stTree.pop();
+		if (pNode->pRight != nullptr)
+		{
+			stTree.push(pNode->pRight);
+		}
+		if (pNode->pLeft != nullptr)
+		{
+			stTree.push(pNode->pLeft);
+		}
+		
+	}
+
+	return vecPreOrder;
+}
+//迭代中序遍历
+std::vector<int> CBinarySTree::inorderTraversal(TreeNode* root)
+{
+	std::vector<int> vecPreOrder;
+	std::stack<TreeNode*> stTree;
+	if (root == nullptr)
+		return vecPreOrder;
+	do 
+	{
+		while (root != nullptr)
+		{
+			stTree.push(root);
+			root = root->pLeft;
+		}
+		if (!stTree.empty())
+		{
+			TreeNode* pNode = stTree.top();
+			vecPreOrder.push_back(pNode->_value);
+			stTree.pop();
+			
+			root = pNode->pRight;
+		}
+
+
+	} while (!stTree.empty() || root != nullptr);
+
+	return vecPreOrder;
+}
+//迭代后序遍历  左-右-根
+std::vector<int> CBinarySTree::postorderTraversal(TreeNode* root)
+{
+	std::vector<int> vecPreOrder;
+	std::stack<TreeNode*> stTree;
+	if (root == nullptr)
+		return vecPreOrder;
+
+	stTree.push(root);
+
+	while (!stTree.empty())
+	{
+		TreeNode* pNode = stTree.top();
+		stTree.pop();
+		if (pNode->pLeft != nullptr)
+			stTree.push(pNode->pLeft);
+		if (pNode->pRight != nullptr)
+			stTree.push(pNode->pRight);
+
+		vecPreOrder.insert(vecPreOrder.begin(),pNode->_value);
+	}
+	return vecPreOrder;
+}
+
 bool CBinarySTree::isBalance(TreeNode* pTreeNode)
 {
 	bool bResult = true;
