@@ -330,6 +330,25 @@ std::vector<int> CBinarySTree::postorderTraversal(TreeNode* root)
 	return vecPreOrder;
 }
 
+int CBinarySTree::GetMinHeigth(TreeNode* root)
+{
+	if (nullptr == root)
+		return 0;
+	if (root->pLeft == nullptr && root->pRight == nullptr)
+		return 1;
+
+	int minDepth = INT_MAX;
+	if (root->pLeft != nullptr)
+	{
+		minDepth = std::min(GetMinHeigth(root->pLeft), minDepth);
+	}
+	if (root->pRight != nullptr)
+	{
+		minDepth = std::min(GetMinHeigth(root->pRight), minDepth);
+	}
+	return minDepth + 1;
+}
+
 bool CBinarySTree::isBalance(TreeNode* pTreeNode)
 {
 	bool bResult = true;

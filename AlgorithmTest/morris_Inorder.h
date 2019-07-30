@@ -48,6 +48,8 @@ public:
 	std::vector<int> inorderTraversal(TreeNode* root);
 	std::vector<int> postorderTraversal(TreeNode* root);  //145
 
+	int GetMinHeigth(TreeNode* root);
+
 public:
 	//判断二叉树是不是平衡二叉树
 	bool isBalance(TreeNode* pTreeNode);
