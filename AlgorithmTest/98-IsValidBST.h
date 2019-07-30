@@ -48,33 +48,33 @@ bool Solution::isValidBST(TreeNode* pRootNode)
 	TreeNode* pCur = nullptr;
 	while (pNode != nullptr)
 	{
-		pCur = pNode->pLeft;
+		pCur = pNode->left;
 		if (pCur != nullptr)
 		{
-			while (pCur->pRight != nullptr && pCur->pRight != pNode)
+			while (pCur->right != nullptr && pCur->right != pNode)
 			{
-				pCur = pCur->pRight;
+				pCur = pCur->right;
 			}
-			if (pCur->pRight == nullptr)
+			if (pCur->right == nullptr)
 			{
-				pCur->pRight = pNode;
-				pNode = pNode->pLeft;
+				pCur->right = pNode;
+				pNode = pNode->left;
 				continue;
 			}
 			else
 			{
-				pCur->pRight = nullptr
+				pCur->right = nullptr
 			}
 		}
 		//有重复值节点
 //		if (pPre != nullptr && pPre->_value >= pNode->_value)
 
-		if (pPre != nullptr && pPre->_value > pNode->_value)
+		if (pPre != nullptr && pPre->val > pNode->val)
 		{
 			bRet = false;
 		}
 		pPre = pNode;
-		pNode = pNode->pRight;
+		pNode = pNode->right;
 
 	}
 	return bRet;
