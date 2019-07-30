@@ -54,7 +54,7 @@ public:
 
 public:
 	//判断二叉树是不是平衡二叉树
-	bool isBalance(TreeNode* pTreeNode);
+	bool isBalance(TreeNode* pTreeNode);	//110
 
 protected:
 	int	GetHeight(TreeNode* pTreeNode, int nLevel, bool &bResult);
