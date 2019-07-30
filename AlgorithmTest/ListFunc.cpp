@@ -230,6 +230,53 @@ PNODE SingleList::SortList(PNODE pHead)
 	return DummyHead.pNext;
 }
 
+
+//对链表进行插入排序
+PNODE SingleList::InsertSortList(PNODE pHead)
+{
+// 	PNODE pNode = pHead;
+// 	NODE stNode(0);
+// 	stNode.pNext = pHead;
+// 	
+// 	while (pNode)
+// 	{
+// 		PNODE pnext = pNode->pNext;
+// 		PNODE pTst = stNode.pNext;
+// 		PNODE pPre = &stNode;
+// 		while (pTst != pNode)
+// 		{
+// 			if (pTst->nValue > pNode->nValue)
+// 			{
+// 				PNODE pTmp = pNode->pNext;
+// 				pNode->pNext = pPre->pNext;
+// 				pPre->pNext = pNode;
+// 				/*pNode->pNext = pTst;*/
+// 				pTst->pNext = pTmp;
+// 				break;
+// 			}
+// 			pPre = pPre->pNext;
+// 			pTst = pTst->pNext;
+// 		}
+// 		pNode = pnext;
+// 	}
+// 	return stNode.pNext;
+
+	NODE  dummyNode(0);
+	dummyNode.pNext = pHead;
+	while (pHead != nullptr)
+	{
+		PNODE pCur = &dummyNode;
+		PNODE pnext = pHead->pNext;
+		while (pCur->pNext != nullptr && pCur->nValue < pHead->nValue)
+			pCur = pCur->pNext;
+		
+		pHead->pNext = pCur->pNext;
+		pCur->pNext = pHead;
+		pHead = pnext;
+	}
+	return dummyNode.pNext;
+}
+
 void SingleList::TestSingleList()
 {
 	for (int iLoop = 0; iLoop < 5; ++iLoop)
