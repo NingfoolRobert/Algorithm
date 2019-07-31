@@ -6,8 +6,8 @@
 #include <map>
 #include <algorithm>
 #include <list>
-
-
+#include <queue>
+#include <deque>
 
 
 using namespace std;
@@ -47,7 +47,11 @@ public:
 	std::vector<int> preorderTraversal(TreeNode* root);
 	std::vector<int> inorderTraversal(TreeNode* root);
 	std::vector<int> postorderTraversal(TreeNode* root);  //145
+	
+	//层次遍历
+	std::vector<int> LevelOrderTraversal(TreeNode* root);
 
+	//高度
 	int GetMinHeigth(TreeNode* root);
 
 	int GetMaxHeigth(TreeNode* root);	//104

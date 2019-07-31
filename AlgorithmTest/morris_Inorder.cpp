@@ -330,6 +330,33 @@ std::vector<int> CBinarySTree::postorderTraversal(TreeNode* root)
 	return vecPreOrder;
 }
 
+//≤„–Ú±È¿˙
+std::vector<int> CBinarySTree::LevelOrderTraversal(TreeNode* root)
+{
+	std::vector<int> vecNums;
+	std::queue<TreeNode*> quTree;
+	if (root == nullptr)
+		return vecNums;
+	TreeNode* pRoot = root;
+	quTree.push(pRoot);
+	while (!quTree.empty())
+	{
+		TreeNode* quFront = quTree.front();
+		quTree.pop();
+		vecNums.push_back(quFront->_value);
+		if (quFront->pLeft != nullptr)
+		{
+			quTree.push(quFront->pLeft);
+		}
+		if (quFront->pRight != nullptr)
+		{
+			quTree.push(quFront->pRight);
+		}
+	}
+	
+	return vecNums;
+}
+
 int CBinarySTree::GetMinHeigth(TreeNode* root)
 {
 	if (nullptr == root)
