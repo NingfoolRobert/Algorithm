@@ -138,6 +138,9 @@
     <ClInclude Include="146-LRUCache.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="128-longestConsecutive.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

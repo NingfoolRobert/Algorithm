@@ -90,6 +90,7 @@
     <ClInclude Include="08-isPalindrome.h" />
     <ClInclude Include="11-maxArea.h" />
     <ClInclude Include="12-IntToRoman.h" />
+    <ClInclude Include="128-longestConsecutive.h" />
     <ClInclude Include="14-longestCommonPrefix.h" />
     <ClInclude Include="146-LRUCache.h" />
     <ClInclude Include="15-threeSum.h" />
