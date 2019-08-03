@@ -43,6 +43,8 @@ public:
 
 	PNODE   InsertSortList(PNODE pHead);		//147题 对链表进行插入排序
 
+	//
+	PNODE	reverseKGroup(PNODE pHead, int k);	//25题   
 public:
 	void TestSingleList();
 protected:

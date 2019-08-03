@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "ListFunc.h"
 
 
@@ -155,7 +155,7 @@ void SingleList::Print(PNODE pHead)
 		pNode = pNode->pNext;
 	}
 }
-//ºÏ²¢K¸öÓĞĞòÁ´±í
+//åˆå¹¶Kä¸ªæœ‰åºé“¾è¡¨
 
 PNODE SingleList::MergeKLists(vector<PNODE>& lists)
 {
@@ -178,7 +178,7 @@ PNODE SingleList::MergeKLists(vector<PNODE>& lists)
 	}
 	return pNewHead->pNext;
 }
-//ºÏ²¢Á½¸öÓĞĞòÁ´±í
+//åˆå¹¶ä¸¤ä¸ªæœ‰åºé“¾è¡¨
 PNODE SingleList::MergeTwoLists(PNODE l1, PNODE l2)
 {
 	PNODE pHead = new NODE(0);
@@ -202,7 +202,7 @@ PNODE SingleList::MergeTwoLists(PNODE l1, PNODE l2)
 	
 	return pHead->pNext;
 }
-//ÔÚ O(nlogn) Ê±¼ä¸´ÔÓ¶ÈºÍ³£Êı¼¶¿Õ¼ä¸´ÔÓ¶ÈÏÂ£¬¶ÔÁ´±í½øĞĞÅÅĞò
+//åœ¨ O(nlogn) æ—¶é—´å¤æ‚åº¦å’Œå¸¸æ•°çº§ç©ºé—´å¤æ‚åº¦ä¸‹ï¼Œå¯¹é“¾è¡¨è¿›è¡Œæ’åº
 PNODE SingleList::SortList(PNODE pHead)
 {
 	NODE DummyHead(0);  
@@ -231,7 +231,7 @@ PNODE SingleList::SortList(PNODE pHead)
 }
 
 
-//¶ÔÁ´±í½øĞĞ²åÈëÅÅĞò
+//å¯¹é“¾è¡¨è¿›è¡Œæ’å…¥æ’åº
 PNODE SingleList::InsertSortList(PNODE pHead)
 {
 // 	PNODE pNode = pHead;
@@ -314,6 +314,36 @@ PNODE SingleList::InsertSortList(PNODE pHead)
 	return pHeadNode;
 }
 
+/*
+ç»™ä½ ä¸€ä¸ªé“¾è¡¨ï¼Œæ¯Â kÂ ä¸ªèŠ‚ç‚¹ä¸€ç»„è¿›è¡Œç¿»è½¬ï¼Œè¯·ä½ è¿”å›ç¿»è½¬åçš„é“¾è¡¨ã€‚kÂ æ˜¯ä¸€ä¸ªæ­£æ•´æ•°ï¼Œå®ƒçš„å€¼å°äºæˆ–ç­‰äºé“¾è¡¨çš„é•¿åº¦ã€‚
+å¦‚æœèŠ‚ç‚¹æ€»æ•°ä¸æ˜¯Â kÂ çš„æ•´æ•°å€ï¼Œé‚£ä¹ˆè¯·å°†æœ€åå‰©ä½™çš„èŠ‚ç‚¹ä¿æŒåŸæœ‰é¡ºåºã€‚
+*/
+// ä¿å­˜ ç¬¬K+1ä¸ªèŠ‚ç‚¹ï¼Œå‰Kä¸ªç¿»è½¬
+PNODE SingleList::reverseKGroup(PNODE pHead, int k)
+{
+	if (pHead == nullptr) return nullptr;
+	int nLen = GetListLen(pHead);
+	PNODE pNewNode = nullptr;
+	PNODE pEnd = nullptr;
+	for (int i = 0; i <= nLen / k; ++i)
+	{
+		PNODE  pKNode = Cut(pHead, k);
+		PNODE pTmp = Reverse(pHead);
+		if (i == 0)
+			pNewNode = pTmp;
+		if (pEnd)
+		{
+			pEnd->pNext = pTmp;
+		}
+		pEnd = pHead;
+	}
+	if (nLen % k)
+	{
+		pEnd->pNext = pHead;
+	}
+	return  pNewNode;
+}
+
 void SingleList::TestSingleList()
 {
 	for (int iLoop = 0; iLoop < 5; ++iLoop)
@@ -341,7 +371,7 @@ void SingleList::TestSingleList()
 
 }
 
-//·µ»Ø  nSize³¤¶ÈºóµÄÖ¸Õë
+//è¿”å›  nSizeé•¿åº¦åçš„æŒ‡é’ˆ
 PNODE SingleList::Cut(PNODE pHead, int nSize)
 {
 	PNODE pNode = pHead;
@@ -358,7 +388,7 @@ PNODE SingleList::Cut(PNODE pHead, int nSize)
 	return next;
 }
 
-//»ñÈ¡Á´±í³¤¶È
+//è·å–é“¾è¡¨é•¿åº¦
 int SingleList::GetListLen(PNODE pHead)
 {
 	PNODE pNode = pHead;
