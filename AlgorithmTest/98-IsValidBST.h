@@ -63,7 +63,7 @@ bool Solution::isValidBST(TreeNode* pRootNode)
 			}
 			else
 			{
-				pCur->right = nullptr
+				pCur->right = nullptr;
 			}
 		}
 		//有重复值节点
