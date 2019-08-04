@@ -88,6 +88,7 @@
     <ClInclude Include="06-ZConvert.h" />
     <ClInclude Include="07-Reverse.h" />
     <ClInclude Include="08-isPalindrome.h" />
+    <ClInclude Include="100-isSameTree.h" />
     <ClInclude Include="11-maxArea.h" />
     <ClInclude Include="12-IntToRoman.h" />
     <ClInclude Include="128-longestConsecutive.h" />
@@ -102,8 +103,10 @@
     <ClInclude Include="98-IsValidBST.h" />
     <ClInclude Include="BinarySearch.h" />
     <ClInclude Include="CommonHelper.h" />
+    <ClInclude Include="dfs.h" />
     <ClInclude Include="Dijkstra.h" />
     <ClInclude Include="FindMax_K.h" />
+    <ClInclude Include="fullPermutation.h" />
     <ClInclude Include="HeapTest.h" />
     <ClInclude Include="kruskal.h" />
     <ClInclude Include="ListFunc.h" />
@@ -117,6 +120,7 @@
     <ClInclude Include="StrFunc.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TestDeadLock.h" />
+    <ClInclude Include="TreeDefine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algorithm.cpp" />

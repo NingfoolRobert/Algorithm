@@ -9,17 +9,10 @@
 #include <queue>
 #include <deque>
 
+#include "TreeDefine.h"
 
 using namespace std;
 
-
-struct  TreeNode 
-{
-	int	_value;
-	TreeNode* pLeft;
-	TreeNode* pRight;
-	TreeNode(int nvalue) :_value(nvalue), pLeft(nullptr), pRight(nullptr){}
-};
 
 class  CBinarySTree
 {

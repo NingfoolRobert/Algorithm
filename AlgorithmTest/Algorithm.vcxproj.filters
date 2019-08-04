@@ -25,6 +25,9 @@
     <Filter Include="Tree">
       <UniqueIdentifier>{7695c8b6-9b3a-48a8-83ca-0162c4ac03ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DFS">
+      <UniqueIdentifier>{ec67213f-785c-4fe8-8293-f59ae4599e55}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -142,6 +145,18 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="93-restoreIpAddresses.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dfs.h">
+      <Filter>DFS</Filter>
+    </ClInclude>
+    <ClInclude Include="fullPermutation.h">
+      <Filter>DFS</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeDefine.h">
+      <Filter>Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="100-isSameTree.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
