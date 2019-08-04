@@ -50,6 +50,8 @@ std::vector<std::string> CSolution::restoreIpAddresses(string s)
 			if (!Juage(pnode3, pszend))
 			{
 				pnode3++;
+				if (pnode3 == pszend)
+					break;
 				continue;
 			}
 			else
