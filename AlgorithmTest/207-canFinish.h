@@ -15,6 +15,7 @@ class CSolution
 public:
 	bool canFinish_BFS(int numCourse, vector<pair<int, int>>& prerequies);
 	bool canFinish_DFS(int numCourses, vector<pair<int, int>>& prerequies);
+	bool canFinish(int numCourses, vector<pair<int, int>>& prerequies);
 protected:
 private:
 };
@@ -104,5 +105,53 @@ bool CSolution::canFinish_DFS(int numCourses, vector<pair<int, int>>& prerequisi
 		if (degree[i] > 0)
 			return false;
 	return true;
+}
+
+bool CSolution::canFinish(int numCourses, vector<pair<int, int>>& prerequies)
+{
+
+	vector<vector<int>> matrixCourse(numCourses, vector<int>(numCourses, 0));
+	vector<int> beforeNeedCourse(numCourses, 0);//标记该课程前置课程数量
+	vector<bool> flag(numCourses, false);
+
+	vector<int> learnCourseOrder;
+	
+	int nSize = prerequies.size();
+	for (int i = 0; i < nSize; ++i)
+	{
+		beforeNeedCourse[prerequies[i].first]++;
+		matrixCourse[prerequies[i].second][prerequies[i].first] = 1;
+	}
+
+	queue<int> myQueue;
+	
+	for (int i = 0; i < nSize; ++i)
+	{
+		//找出不需要前提条件的课程
+		if (beforeNeedCourse[i] == 0)
+			myQueue.push(i);
+	}
+
+	while (!myQueue.empty())
+	{
+		int nTmp = myQueue.front();
+		myQueue.pop();
+		flag[nTmp] = true;
+		learnCourseOrder.push_back(nTmp);
+		//将所有为学习，但需要先学习nTmp的这个课程单独先决条件去除
+		for (int i = 0; i < numCourses; ++i)
+		{
+			if (matrixCourse[nTmp][i] < 0)continue;
+			matrixCourse[nTmp][i]--;
+			
+			if (matrixCourse[nTmp][i] == 0 && flag[nTmp] == false)
+			{
+				if(--beforeNeedCourse[i])	//减少一个前提条件
+					continue;
+				myQueue.push(i);
+			}
+		}
+	}
+	return learnCourseOrder.size() == numCourses;
 }
 
