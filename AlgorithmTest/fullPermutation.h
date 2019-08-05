@@ -7,17 +7,18 @@
 #include <vector>
 #include <map>
 
+using namespace std;
 
 class CSolution
 {
 public:
-	vector<vector<int>> FullPermutation(vector<int>& vecNums);
+	std::vector<std::vector<int>> FullPermutation(std::vector<int>& vecNums);
 	void dfs(int step, vector<int>& vecNums, vector<int>& listNums, vector<int>& vis, vector<std::vector<int>>& result);
 protected:
 private:
 };
 
-std::vector<std::vector<int>> CSolution::FullPermutation(vector<int>vecNums)
+std::vector<std::vector<int>> CSolution::FullPermutation(std::vector<int>& vecNums)
 {
 	int nSize = vecNums.size();
 	vector<int> vis;
