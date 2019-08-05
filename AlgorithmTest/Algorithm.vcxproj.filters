@@ -159,6 +159,9 @@
     <ClInclude Include="100-isSameTree.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="207-canFinish.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
