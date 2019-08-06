@@ -100,6 +100,6 @@ void CSolution::help(TreeNode* root,int sum, vector<vector<int>>& res, vector<in
 	}
 	help(root->pRight, sum - root->_value, res, tmp);
 	help(root->pLeft, sum - root->_value, res, tmp);
-	tmp.clear();
+	tmp.erase(tmp.begin() + tmp.size() - 1);
 }
 
