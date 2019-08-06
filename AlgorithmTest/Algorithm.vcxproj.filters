@@ -171,6 +171,9 @@
     <ClInclude Include="112-hasPathSum.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="114-flatten.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

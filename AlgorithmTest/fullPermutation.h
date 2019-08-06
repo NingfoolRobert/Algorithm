@@ -31,7 +31,7 @@ std::vector<std::vector<int>> CSolution::FullPermutation(std::vector<int>& vecNu
 void CSolution::dfs(int step, vector<int>& vecNums , vector<int>& listNums, vector<int>& vis, vector<std::vector<int>>& result)
 {
 	int nSize = vecNums.size();
-	if (step == nSize + 1)
+	if (step == nSize)
 	{
 		result.push_back(listNums);
 		return;
@@ -41,12 +41,13 @@ void CSolution::dfs(int step, vector<int>& vecNums , vector<int>& listNums, vect
 	{
 		if (vis[i] == 0)
 		{
-			listNums[step] = vecNums[i];
+			/*listNums[step] = vecNums[i];*/
+			listNums.push_back(vecNums[i]);
 			vis[i] = 1;
 			dfs(step + 1, vecNums, listNums, vis, result);
 			vis[i] = 0;
+			listNums.erase(listNums.begin() + listNums.size() - 1);
 		}
 	}
-	return;
 }
 

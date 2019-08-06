@@ -92,6 +92,7 @@
     <ClInclude Include="101-isSymmetric.h" />
     <ClInclude Include="11-maxArea.h" />
     <ClInclude Include="112-hasPathSum.h" />
+    <ClInclude Include="114-flatten.h" />
     <ClInclude Include="12-IntToRoman.h" />
     <ClInclude Include="128-longestConsecutive.h" />
     <ClInclude Include="14-longestCommonPrefix.h" />
