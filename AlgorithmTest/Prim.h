@@ -77,3 +77,60 @@ int Test()
 		cout << MST[i].first + 1 << "->" << MST[i].second + 1 << endl;
 	return 0;
 }
+
+
+
+class CSolution
+{
+public:
+	CSolution();
+	~CSolution();
+public:
+	int Prim(int nCur);
+private:
+	vector<vector<int> >	_graph;
+	vector<int>				_dist;
+	vector<bool>			_flag;
+};
+
+CSolution::CSolution()
+{
+}
+
+CSolution::~CSolution()
+{
+}
+
+int CSolution::Prim(int nCur)
+{
+	int sum = 0;
+	int nSize = _graph.size();
+	vector<bool> flag(nSize, false);
+	flag[nCur] = true;
+	_dist.clear();
+	for (int i = 0; i < nSize; ++i)
+	{
+		_dist[i] = _graph[nCur][i];
+	}
+	int nMin = INT_MAX;
+	int nIndex = nCur;
+	for (int i = 1; i < nSize; ++i)
+	{
+		for (int j=0;j< nSize;++j)
+		{
+			if (nMin > _dist[j])
+			{
+				nMin = _dist[j];			//选入待选集合中
+				nIndex = j;
+			}
+		}
+		flag[nIndex] = true;				//标记已选择点
+		sum += nMin;
+		for (int j = 0;j< nSize;j++)
+		{
+			if (!flag[j] && _dist[j] > _graph[nIndex][j])		//更新剩余节点路径中最小距离
+				_dist[j] = _graph[nIndex][j];
+		}
+	}
+	return sum;
+}
