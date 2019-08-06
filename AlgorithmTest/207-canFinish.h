@@ -137,7 +137,7 @@ bool CSolution::canFinish(int numCourses, vector<pair<int, int>>& prerequies)
 		int nTmp = myQueue.front();
 		myQueue.pop();
 		flag[nTmp] = true;
-		learnCourseOrder.push_back(nTmp);
+		learnCourseOrder.push_back(nTmp);					//BFS  搜索
 		//将所有为学习，但需要先学习nTmp的这个课程单独先决条件去除
 		for (int i = 0; i < numCourses; ++i)
 		{
