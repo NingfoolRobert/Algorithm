@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <stack>
 #include <queue>
-
+#include <vector>
 #include "TreeDefine.h"
 
 
@@ -18,8 +18,9 @@ public:
 public:
 	bool hasPathSum(TreeNode* root, int sum);
 	bool hasPathSum_stack(TreeNode* root, int sum);
+	vector<vector<int>> PathSum(TreeNode* root, int sum);	//113
 private:
-
+	void help(TreeNode* root,int sum, vector<vector<int>>& res, vector<int>& tmp);
 };
 
 CSolution::CSolution()
@@ -72,5 +73,33 @@ bool CSolution::hasPathSum_stack(TreeNode* root, int sum)
 		stNode.push(make_pair(p.first->pRight, sum - p.first->pRight->_value));
 	}
 	return false;
+}
+
+
+//找出所有路径
+std::vector<std::vector<int>> CSolution::PathSum(TreeNode* root, int sum)
+{
+	vector<vector<int>> res;
+	vector<int> tmp;
+	//help(root, );
+
+	return res;
+}
+
+void CSolution::help(TreeNode* root,int sum, vector<vector<int>>& res, vector<int>& tmp)
+{
+	if (root == nullptr) return;
+	
+	tmp.push_back(root->_value);
+
+	if (root->pLeft == nullptr && root->pRight == nullptr && sum - root->_value == 0)
+	{
+		res.push_back(tmp);
+		tmp.clear();
+		return;
+	}
+	help(root->pRight, sum - root->_value, res, tmp);
+	help(root->pLeft, sum - root->_value, res, tmp);
+	tmp.clear();
 }
 
