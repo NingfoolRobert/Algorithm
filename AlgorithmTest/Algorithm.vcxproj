@@ -101,6 +101,7 @@
     <ClInclude Include="16-letterCombinations.h" />
     <ClInclude Include="199-rightSideView.h" />
     <ClInclude Include="207-canFinish.h" />
+    <ClInclude Include="257-binaryTreePaths.h" />
     <ClInclude Include="50-Pow.h" />
     <ClInclude Include="76-MinWindows.h" />
     <ClInclude Include="92-findKthLargest.h" />
