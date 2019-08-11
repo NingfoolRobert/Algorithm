@@ -183,7 +183,7 @@ PNODE SingleList::MergeTwoLists(PNODE l1, PNODE l2)
 {
 	PNODE pHead = new NODE(0);
 	PNODE pNode = pHead;
-	pHead->pNext = pNode;
+	//pHead->pNext = pNode;
 	while (l1 && l2)
 	{
 		if (l1->nValue < l2->nValue)
