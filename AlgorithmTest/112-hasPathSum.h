@@ -82,7 +82,7 @@ std::vector<std::vector<int>> CSolution::PathSum(TreeNode* root, int sum)
 	vector<vector<int>> res;
 	vector<int> tmp;
 	//help(root, );
-
+	help(root, sum, res, tmp);
 	return res;
 }
 

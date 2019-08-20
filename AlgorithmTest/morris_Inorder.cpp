@@ -399,6 +399,29 @@ int CBinarySTree::GetMaxHeigth(TreeNode* root)
 	return max(nLeft, nRigth) + 1;
 }
 
+std::vector<std::vector<int>> CBinarySTree::LevelOrder(TreeNode* root)
+{
+	std::vector<std::vector<int>> res;
+	help_LevelOrder(root, 0, res);
+	return res;
+}
+
+void CBinarySTree::help_LevelOrder(TreeNode* root, int nlevel, std::vector<std::vector<int>>& res)
+{
+	if (root == nullptr)
+		return;
+	if (res.size() == nlevel)
+	{
+		std::vector<int> Tmp;
+		res.push_back(Tmp);
+	}
+	res[nlevel].push_back(root->_value);
+	if (root->pLeft != nullptr)
+		help_LevelOrder(root->pLeft, nlevel + 1, res);
+	if (root->pRight != nullptr)
+		help_LevelOrder(root->pLeft, nlevel + 1, res);
+}
+
 bool CBinarySTree::isBalance(TreeNode* pTreeNode)
 {
 	bool bResult = true;

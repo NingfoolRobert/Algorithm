@@ -292,6 +292,7 @@ PNODE SingleList::InsertSortList(PNODE pHead)
 		{
 			pTail->pNext = pCur;
 			pTail = pCur;
+			pTail->pNext = nullptr;
 		}
 		else
 		{

@@ -49,6 +49,11 @@ public:
 
 	int GetMaxHeigth(TreeNode* root);	//104
 
+	//层次遍历
+	std::vector<std::vector<int>> LevelOrder(TreeNode* root);
+
+	void help_LevelOrder(TreeNode* root, int nlevel, std::vector<std::vector<int>>& res);
+
 public:
 	//判断二叉树是不是平衡二叉树
 	bool isBalance(TreeNode* pTreeNode);	//110
