@@ -143,7 +143,7 @@ void CBinarySTree::morris_inorder(TreeNode* pTreeNode)
 		}
 
 		Print(pTmp);
-		pNode = pNode->pRight;
+		pNode = pTmp->pRight;
 	}
 }
 

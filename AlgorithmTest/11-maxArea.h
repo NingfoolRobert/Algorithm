@@ -3,7 +3,7 @@
 #include <iostream>
 #include <math.h>
 #include <vector>
-
+#include <algorithm>
 
 using namespace std;
 
@@ -56,8 +56,8 @@ int Solution::maxArea_violence(std::vector<int>&Height)
 		int nTmp = 0;
 		for (int j = iLoop + 1;j < Height.size();++j)
 		{
-			nTmp = min(Height[j], Height[i]) * (j - i);
-			nMaxArea = max(nMaxArea, nTmp);
+			nTmp = std::min(Height[j], Height[iLoop]) * (j - iLoop);
+			nMaxArea = std::max(nMaxArea, nTmp);
 		}
 	}
 	return nMaxArea;

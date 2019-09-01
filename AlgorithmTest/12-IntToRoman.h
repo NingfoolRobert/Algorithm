@@ -46,19 +46,19 @@ int Solution::RomanToInt(string str)
 {
 	//map<string, int> mapRoman;
 	unordered_map<string, int> mapRoman;
-	mapRoman["I"] = 1;
-	mapRoman["IV"] = 4;
-	mapRoman["V"] = 5;
-	mapRoman["IX"] = 9;
-	mapRoman["X"] = 10;
-	mapRoman["XL"] = 40;
-	mapRoman["L"] = 50;
-	mapRoman["XC"] = 90;
-	mapRoman["C"] = 100;
-	mapRoman["CD"] = 400;
-	mapRoman["D"] = 500;
-	mapRoman["CM"] = 900;
-	mapRoman["M"] = 1000;
+	mapRoman["I"]	= 1;
+	mapRoman["IV"]	= 4;
+	mapRoman["V"]	= 5;
+	mapRoman["IX"]	= 9;
+	mapRoman["X"]	= 10;
+	mapRoman["XL"]	= 40;
+	mapRoman["L"]	= 50;
+	mapRoman["XC"]	= 90;
+	mapRoman["C"]	= 100;
+	mapRoman["CD"]	= 400;
+	mapRoman["D"]	= 500;
+	mapRoman["CM"]	= 900;
+	mapRoman["M"]	= 1000;
 
 	int nAns = 0;
 	int nIndex = 0;
