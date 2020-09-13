@@ -3,6 +3,7 @@
 #include <iostream>
 #include <math.h>
 #include <vector>
+#include <stack>
 
 
 using namespace std;
@@ -15,6 +16,13 @@ public:
 	void heapSortMin(int* a, int n);
 	void heapSortMax(int* a, int n);
 	int TestHeapSort();
+
+	void quickSort(int* arr, int nStart, int nEnd);
+
+	void quickSort_norecursion(int* arr, int nStart, int nEnd);
+
+	int PartSort(int* arr, int nStart, int nEnd);
+
 protected:
 
 	void maxHeapDown(int* a, int start, int end);
@@ -163,4 +171,75 @@ int CSolution::TestHeapSort()
 	cout << endl;
 
 	return 0;
+}
+
+
+void CSolution::quickSort(int* arr, int nStart, int nEnd)
+{
+	if (nStart >= nEnd)
+		return;
+	
+	int nTmp = arr[nStart];
+	int i = nStart;
+	int j = nEnd;
+	
+	while (i < j)
+	{
+		while (i < j && arr[i] <= nTmp) i++;
+		while (i < j && arr[j] < nTmp) j++;
+		
+		if (i < j && arr[i] < arr[j])
+			std::swap(arr[i], arr[j]);
+	}
+	
+	std::swap(arr[nStart], arr[i]);
+	quickSort(arr, nStart, i - 1);
+	quickSort(arr, nStart, i + 1);
+}
+
+void CSolution::quickSort_norecursion(int* arr, int nStart, int nEnd)
+{
+	std::stack<int> s;
+
+	s.push(nStart);
+	s.push(nEnd);
+	
+	while (!s.empty())
+	{
+		int rigth = s.top();
+		s.pop();
+		int left = s.top();
+		s.pop();
+		
+		int nCent = PartSort(arr, left, rigth);
+		
+		if (nCent != -1)
+		{
+			s.push(nCent + 1);
+			s.push(nCent - 1);
+		}
+	}
+}
+
+int CSolution::PartSort(int* arr, int nStart, int nEnd)
+{
+	if (nStart >= nEnd)
+		return -1;
+	
+	int nTmp = arr[nStart];
+	int i = nStart; 
+	int j = nEnd;
+
+	while (i < j)
+	{
+		while (i < j && arr[i] <= nTmp) i++;
+		while (i < j && arr[j] >= nTmp) j++;
+		
+		if (i < j && arr[i] > arr[j])
+			std::swap(arr[i], arr[j]);
+	}
+
+	std::swap(arr[i], arr[nStart]);
+
+	return i;
 }

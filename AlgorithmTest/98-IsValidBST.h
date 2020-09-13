@@ -55,6 +55,8 @@ bool Solution::isValidBST(TreeNode* pRootNode)
 			{
 				pCur = pCur->right;
 			}
+			//
+
 			if (pCur->right == nullptr)
 			{
 				pCur->right = pNode;
