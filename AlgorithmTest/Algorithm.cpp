@@ -19,6 +19,7 @@
 //#include "14-longestCommonPrefix.h"
 //#include "15-threeSum.h"
 
+#include "20-ValidSymbol.h"
 
 
 void func()
@@ -86,6 +87,10 @@ int _tmain(int argc, _TCHAR* argv[])
 // 	cout << strTest << endl;
 // 	CThreeSum thre;
 // 	thre.TestThreeSum_0();
+
+	C20Solution so;
+	bool bRet = so.isValid("()[]{}");
+	printf("%d\n", bRet);
 
 	system("pause");
 

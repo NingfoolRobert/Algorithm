@@ -177,6 +177,9 @@
     <ClInclude Include="257-binaryTreePaths.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="20-ValidSymbol.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
