@@ -103,6 +103,7 @@
     <ClInclude Include="20-ValidSymbol.h" />
     <ClInclude Include="207-canFinish.h" />
     <ClInclude Include="24-swapPairs.h" />
+    <ClInclude Include="25-reverseKGroup.h" />
     <ClInclude Include="257-binaryTreePaths.h" />
     <ClInclude Include="50-Pow.h" />
     <ClInclude Include="76-MinWindows.h" />
@@ -110,6 +111,7 @@
     <ClInclude Include="93-restoreIpAddresses.h" />
     <ClInclude Include="98-IsValidBST.h" />
     <ClInclude Include="BinarySearch.h" />
+    <ClInclude Include="ByteDance.h" />
     <ClInclude Include="CommonHelper.h" />
     <ClInclude Include="dfs.h" />
     <ClInclude Include="Dijkstra.h" />
@@ -118,6 +120,7 @@
     <ClInclude Include="HeapTest.h" />
     <ClInclude Include="kruskal.h" />
     <ClInclude Include="ListFunc.h" />
+    <ClInclude Include="ListNode.h" />
     <ClInclude Include="LongestChildSuqence.h" />
     <ClInclude Include="MinCutPalindrome.h" />
     <ClInclude Include="morris_Inorder.h" />

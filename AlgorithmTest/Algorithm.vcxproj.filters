@@ -183,6 +183,15 @@
     <ClInclude Include="24-swapPairs.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="25-reverseKGroup.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ListNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ByteDance.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

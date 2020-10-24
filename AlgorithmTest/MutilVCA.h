@@ -101,7 +101,7 @@ std::vector<int> Solution::findCommon(std::vector<int>& vecA, std::vector<int>& 
 /*
 			Array(i,j)		i=0,j=0;
 dp(i,j) =
-			min(dp(i-1,j-2),dp(i-2,j-1),dp(i-1,j+2),dp(i-2,j+1)) + Array(i,j)		i>0,j>0;
+			min(dp(i-1,j-2),dp(i-2,j-1),dp(i-1,j+2),dp(i-2,j+1)) + Array(i,j)	i>0,j>0;
 */
 int Solution::MinPathLen(std::vector<std::vector<int>>& vecGrid)
 {
