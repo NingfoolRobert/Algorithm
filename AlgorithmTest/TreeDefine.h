@@ -3,9 +3,9 @@
 
 struct  TreeNode
 {
-	int	_value;
-	TreeNode* pLeft;
-	TreeNode* pRight;
-	TreeNode(int nvalue) :_value(nvalue), pLeft(nullptr), pRight(nullptr) {}
+	int	val;
+	TreeNode* left;
+	TreeNode* right;
+	TreeNode(int nvalue) :val(nvalue), left(nullptr), right(nullptr) {}
 };
 

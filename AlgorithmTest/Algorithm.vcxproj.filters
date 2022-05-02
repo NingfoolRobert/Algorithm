@@ -192,6 +192,21 @@
     <ClInclude Include="ByteDance.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="byte.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SumMaxlongest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="1305-getAllElmentSorted.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="41-firstMissingPositive.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="32-longestValidParentheses.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

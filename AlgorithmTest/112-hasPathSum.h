@@ -41,15 +41,15 @@ bool CSolution::hasPathSum(TreeNode* root, int sum)
 	if (nullptr == root)
 		return false;
 
-	sum -= root->_value;
+	sum -= root->val;
 
-	if(root->pLeft == nullptr && nullptr == root->pRight)
+	if(root->left == nullptr && nullptr == root->right)
 		return sum == 0;
 
 
 	if (0 == sum)
 		return true;
-	return hasPathSum(root->pLeft, sum) || hasPathSum(root->pRight, sum);
+	return hasPathSum(root->left, sum) || hasPathSum(root->right, sum);
 }
 
 bool CSolution::hasPathSum_stack(TreeNode* root, int sum)
@@ -59,7 +59,7 @@ bool CSolution::hasPathSum_stack(TreeNode* root, int sum)
 
 	stack<pair<TreeNode*, int>> stNode;
 
-	stNode.push(make_pair(root, sum - root->_value));
+	stNode.push(make_pair(root, sum - root->val));
 	
 	while (!stNode.empty())
 	{
@@ -90,16 +90,16 @@ void CSolution::help(TreeNode* root,int sum, vector<vector<int>>& res, vector<in
 {
 	if (root == nullptr) return;
 	
-	tmp.push_back(root->_value);
+	tmp.push_back(root->val);
 
-	if (root->pLeft == nullptr && root->pRight == nullptr && sum - root->_value == 0)
+	if (root->left == nullptr && root->right == nullptr && sum - root->val == 0)
 	{
 		res.push_back(tmp);
 		tmp.clear();
 		return;
 	}
-	help(root->pRight, sum - root->_value, res, tmp);
-	help(root->pLeft, sum - root->_value, res, tmp);
+	help(root->right, sum - root->val, res, tmp);
+	help(root->left, sum - root->val, res, tmp);
 	tmp.erase(tmp.begin() + tmp.size() - 1);
 }
 

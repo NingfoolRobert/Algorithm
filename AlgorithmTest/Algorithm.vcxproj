@@ -95,6 +95,7 @@
     <ClInclude Include="114-flatten.h" />
     <ClInclude Include="12-IntToRoman.h" />
     <ClInclude Include="128-longestConsecutive.h" />
+    <ClInclude Include="1305-getAllElmentSorted.h" />
     <ClInclude Include="14-longestCommonPrefix.h" />
     <ClInclude Include="146-LRUCache.h" />
     <ClInclude Include="15-threeSum.h" />
@@ -105,12 +106,15 @@
     <ClInclude Include="24-swapPairs.h" />
     <ClInclude Include="25-reverseKGroup.h" />
     <ClInclude Include="257-binaryTreePaths.h" />
+    <ClInclude Include="32-longestValidParentheses.h" />
+    <ClInclude Include="41-firstMissingPositive.h" />
     <ClInclude Include="50-Pow.h" />
     <ClInclude Include="76-MinWindows.h" />
     <ClInclude Include="92-findKthLargest.h" />
     <ClInclude Include="93-restoreIpAddresses.h" />
     <ClInclude Include="98-IsValidBST.h" />
     <ClInclude Include="BinarySearch.h" />
+    <ClInclude Include="byte.h" />
     <ClInclude Include="ByteDance.h" />
     <ClInclude Include="CommonHelper.h" />
     <ClInclude Include="dfs.h" />
@@ -129,6 +133,7 @@
     <ClInclude Include="SortAlgorithm.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StrFunc.h" />
+    <ClInclude Include="SumMaxlongest.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TestDeadLock.h" />
     <ClInclude Include="TreeDefine.h" />

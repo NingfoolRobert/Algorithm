@@ -35,8 +35,8 @@ bool CSolution::isSameTree(TreeNode* pRoot1, TreeNode* pRoot2)
 		return true;
 	else if (pRoot1 && pRoot2)
 	{
-		if (pRoot1->_value == pRoot2->_value)
-			return isSameTree(pRoot1->pRight, pRoot2->pRight) && isSameTree(pRoot1->pLeft, pRoot2->pLeft);
+		if (pRoot1->val == pRoot2->val)
+			return isSameTree(pRoot1->right, pRoot2->right) && isSameTree(pRoot1->left, pRoot2->left);
 		else
 			return false;
 	}

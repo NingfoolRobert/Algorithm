@@ -27,11 +27,11 @@ bool CBinarySTree::Insert(int nvalue)
 	TreeNode* pTmp = m_RootNode;
 	while (pTmp)
 	{
-		if (nvalue >= pTmp->_value)
+		if (nvalue >= pTmp->val)
 		{
-			if (pTmp->pRight)
+			if (pTmp->right)
 			{
-				pTmp = pTmp->pRight;
+				pTmp = pTmp->right;
 			}
 			else
 			{
@@ -40,16 +40,16 @@ bool CBinarySTree::Insert(int nvalue)
 		}
 		else
 		{
-			if (pTmp->pLeft)
-				pTmp = pTmp->pLeft;
+			if (pTmp->left)
+				pTmp = pTmp->left;
 			else
 				break;
 		}
 	}
-	if (nvalue >= pTmp->_value)
-		pTmp->pRight = pNode;
+	if (nvalue >= pTmp->val)
+		pTmp->right = pNode;
 	else
-		pTmp->pRight = pNode;
+		pTmp->right = pNode;
 
 	return true;
 }
@@ -68,25 +68,25 @@ void CBinarySTree::preOrder_traverse_recur(TreeNode* pTreeNode)
 	if (pTreeNode == nullptr)
 		return;
 	Print(pTreeNode);
-	preOrder_traverse_recur(pTreeNode->pLeft);
-	preOrder_traverse_recur(pTreeNode->pRight);
+	preOrder_traverse_recur(pTreeNode->left);
+	preOrder_traverse_recur(pTreeNode->right);
 }
 
 void CBinarySTree::inOrder_traverse_recur(TreeNode* pTreeNode)
 {
 	if (pTreeNode == nullptr)
 		return;
-	inOrder_traverse_recur(pTreeNode->pLeft);
+	inOrder_traverse_recur(pTreeNode->left);
 	Print(pTreeNode);
-	inOrder_traverse_recur(pTreeNode->pRight);
+	inOrder_traverse_recur(pTreeNode->right);
 }
 
 void CBinarySTree::postOrder_traverse_recur(TreeNode* pTreeNode)
 {
 	if (pTreeNode == nullptr)
 		return;
-	postOrder_traverse_recur(pTreeNode->pLeft);
-	postOrder_traverse_recur(pTreeNode->pRight);
+	postOrder_traverse_recur(pTreeNode->left);
+	postOrder_traverse_recur(pTreeNode->right);
 	Print(pTreeNode);
 }
 
@@ -124,26 +124,26 @@ void CBinarySTree::morris_inorder(TreeNode* pTreeNode)
 // 	}
 	while (pTmp)
 	{
-		if (pTmp->pLeft != nullptr)
+		if (pTmp->left != nullptr)
 		{
-			pNode = pTmp->pLeft;
-			while (pNode->pRight != nullptr && pNode->pRight != pTmp)
+			pNode = pTmp->left;
+			while (pNode->right != nullptr && pNode->right != pTmp)
 			{
-				pNode = pNode->pRight;
+				pNode = pNode->right;
 			}
-			if (pNode->pRight == nullptr)
+			if (pNode->right == nullptr)
 			{
-				pNode->pRight = pTmp;
-				pTmp = pTmp->pLeft;
+				pNode->right = pTmp;
+				pTmp = pTmp->left;
 			}
 			else
 			{
-				pNode->pRight = nullptr;
+				pNode->right = nullptr;
 			}
 		}
 
 		Print(pTmp);
-		pNode = pTmp->pRight;
+		pNode = pTmp->right;
 	}
 }
 
@@ -156,29 +156,29 @@ void CBinarySTree::morris_preOrder(TreeNode* pTreeNode)
 	
 	while (pNode)
 	{
-		pCur = pNode->pLeft;
+		pCur = pNode->left;
 		if (pCur)
 		{
-			while (pCur->pRight != nullptr && pCur->pRight != pNode)
+			while (pCur->right != nullptr && pCur->right != pNode)
 			{
-				pCur = pCur->pRight;
+				pCur = pCur->right;
 			}
-			if (pCur->pRight == nullptr)
+			if (pCur->right == nullptr)
 			{
-				pCur->pRight = pNode;
+				pCur->right = pNode;
 				Print(pNode);
-				pNode = pNode->pLeft;
+				pNode = pNode->left;
 			}
 			else
 			{
-				pCur->pRight = nullptr;
+				pCur->right = nullptr;
 			}
 		}
 		else
 		{
 			Print(pNode);
 		}
-		pNode = pNode->pRight;
+		pNode = pNode->right;
 	}
 	Print(pNode);
 }
@@ -194,26 +194,26 @@ void CBinarySTree::morris_postOrder(TreeNode* pTreeNode)
 
 	while (pNode!= nullptr)
 	{
-		pCur = pNode->pLeft;
+		pCur = pNode->left;
 		if (pCur !=nullptr)
 		{
-			while (pCur->pRight != nullptr && pCur->pRight != pNode)
+			while (pCur->right != nullptr && pCur->right != pNode)
 			{
-				pCur = pCur->pRight;
+				pCur = pCur->right;
 			}
-			if (pCur->pRight == nullptr)
+			if (pCur->right == nullptr)
 			{
-				pCur->pRight = pNode;
-				pNode = pNode->pRight;
+				pCur->right = pNode;
+				pNode = pNode->right;
 				continue;
 			}
 			else
 			{
-				pCur->pRight = nullptr;
-				PrintEdge(pNode->pLeft);
+				pCur->right = nullptr;
+				PrintEdge(pNode->left);
 			}
 		}
-		pNode = pNode->pRight;
+		pNode = pNode->right;
 	}
 	PrintEdge(pTreeNode);
 }
@@ -225,7 +225,7 @@ void CBinarySTree::PrintEdge(TreeNode* pTreeNode)
 	while (pCur != nullptr)
 	{
 		Print(pCur);
-		pCur = pCur->pRight;
+		pCur = pCur->right;
 	}
 	ReverseEdge(pTail);
 }
@@ -237,8 +237,8 @@ TreeNode* CBinarySTree::ReverseEdge(TreeNode* pTreeNode)
 	
 	while (pTreeNode != nullptr)
 	{
-		pNodeNext = pTreeNode->pRight;
-		pTreeNode->pRight = pNodePre;
+		pNodeNext = pTreeNode->right;
+		pTreeNode->right = pNodePre;
 		pNodePre = pTreeNode;
 		pTreeNode = pNodeNext;
 	}
@@ -249,7 +249,7 @@ void CBinarySTree::Print(TreeNode* pTreeNode)
 {
 	if (pTreeNode == nullptr)
 		return;
-	std::cout << pTreeNode->_value << std::endl;
+	std::cout << pTreeNode->val << std::endl;
 }
 
 //µü´úÇ°Ðò±éÀú
@@ -263,15 +263,15 @@ std::vector<int> CBinarySTree::preorderTraversal(TreeNode* root)
 	while (!stTree.empty())
 	{
 		TreeNode* pNode = stTree.top();
-		vecPreOrder.push_back(pNode->_value);
+		vecPreOrder.push_back(pNode->val);
 		stTree.pop();
-		if (pNode->pRight != nullptr)
+		if (pNode->right != nullptr)
 		{
-			stTree.push(pNode->pRight);
+			stTree.push(pNode->right);
 		}
-		if (pNode->pLeft != nullptr)
+		if (pNode->left != nullptr)
 		{
-			stTree.push(pNode->pLeft);
+			stTree.push(pNode->left);
 		}
 		
 	}
@@ -290,15 +290,15 @@ std::vector<int> CBinarySTree::inorderTraversal(TreeNode* root)
 		while (root != nullptr)
 		{
 			stTree.push(root);
-			root = root->pLeft;
+			root = root->left;
 		}
 		if (!stTree.empty())
 		{
 			TreeNode* pNode = stTree.top();
-			vecPreOrder.push_back(pNode->_value);
+			vecPreOrder.push_back(pNode->val);
 			stTree.pop();
 			
-			root = pNode->pRight;
+			root = pNode->right;
 		}
 
 
@@ -320,12 +320,12 @@ std::vector<int> CBinarySTree::postorderTraversal(TreeNode* root)
 	{
 		TreeNode* pNode = stTree.top();
 		stTree.pop();
-		if (pNode->pLeft != nullptr)
-			stTree.push(pNode->pLeft);
-		if (pNode->pRight != nullptr)
-			stTree.push(pNode->pRight);
+		if (pNode->left != nullptr)
+			stTree.push(pNode->left);
+		if (pNode->right != nullptr)
+			stTree.push(pNode->right);
 
-		vecPreOrder.insert(vecPreOrder.begin(),pNode->_value);
+		vecPreOrder.insert(vecPreOrder.begin(),pNode->val);
 	}
 	return vecPreOrder;
 }
@@ -343,14 +343,14 @@ std::vector<int> CBinarySTree::LevelOrderTraversal(TreeNode* root)
 	{
 		TreeNode* quFront = quTree.front();
 		quTree.pop();
-		vecNums.push_back(quFront->_value);
-		if (quFront->pLeft != nullptr)
+		vecNums.push_back(quFront->val);
+		if (quFront->left != nullptr)
 		{
-			quTree.push(quFront->pLeft);
+			quTree.push(quFront->left);
 		}
-		if (quFront->pRight != nullptr)
+		if (quFront->right != nullptr)
 		{
-			quTree.push(quFront->pRight);
+			quTree.push(quFront->right);
 		}
 	}
 	
@@ -361,17 +361,17 @@ int CBinarySTree::GetMinHeigth(TreeNode* root)
 {
 	if (nullptr == root)
 		return 0;
-	if (root->pLeft == nullptr && root->pRight == nullptr)
+	if (root->left == nullptr && root->right == nullptr)
 		return 1;
 
 	int minDepth = INT_MAX;
-	if (root->pLeft != nullptr)
+	if (root->left != nullptr)
 	{
-		minDepth = std::min(GetMinHeigth(root->pLeft), minDepth);
+		minDepth = std::min(GetMinHeigth(root->left), minDepth);
 	}
-	if (root->pRight != nullptr)
+	if (root->right != nullptr)
 	{
-		minDepth = std::min(GetMinHeigth(root->pRight), minDepth);
+		minDepth = std::min(GetMinHeigth(root->right), minDepth);
 	}
 	return minDepth + 1;
 }
@@ -394,8 +394,8 @@ int CBinarySTree::GetMaxHeigth(TreeNode* root)
 	if (root == nullptr)
 	 		return 0;
 
-	int nLeft = GetMaxHeigth(root->pLeft);
-	int nRigth = GetMaxHeigth(root->pRight);
+	int nLeft = GetMaxHeigth(root->left);
+	int nRigth = GetMaxHeigth(root->right);
 	return max(nLeft, nRigth) + 1;
 }
 
@@ -415,11 +415,11 @@ void CBinarySTree::help_LevelOrder(TreeNode* root, int nlevel, std::vector<std::
 		std::vector<int> Tmp;
 		res.push_back(Tmp);
 	}
-	res[nlevel].push_back(root->_value);
-	if (root->pLeft != nullptr)
-		help_LevelOrder(root->pLeft, nlevel + 1, res);
-	if (root->pRight != nullptr)
-		help_LevelOrder(root->pLeft, nlevel + 1, res);
+	res[nlevel].push_back(root->val);
+	if (root->left != nullptr)
+		help_LevelOrder(root->left, nlevel + 1, res);
+	if (root->right != nullptr)
+		help_LevelOrder(root->left, nlevel + 1, res);
 }
 
 bool CBinarySTree::isBalance(TreeNode* pTreeNode)
@@ -433,10 +433,10 @@ int CBinarySTree::GetHeight(TreeNode* pTreeNode, int nLevel, bool &bResult)
 {
 	if (nullptr == pTreeNode)
 		return nLevel;
-	int nleftHeight = GetHeight(pTreeNode->pLeft, nLevel + 1, bResult);
+	int nleftHeight = GetHeight(pTreeNode->left, nLevel + 1, bResult);
 	if (!bResult)
 		return nLevel;
-	int nRightHeigth = GetHeight(pTreeNode->pRight, nLevel + 1, bResult);
+	int nRightHeigth = GetHeight(pTreeNode->right, nLevel + 1, bResult);
 	if (!bResult)
 	{
 		return nLevel;

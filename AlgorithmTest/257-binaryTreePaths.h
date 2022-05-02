@@ -51,13 +51,13 @@ void CSolution::help(TreeNode* root, vector<vector<int>>&res, vector<int>& tmp)
 {
 	if (root == nullptr)
 		return;
-	tmp.push_back(root->_value);
-	if (root->pLeft == nullptr && root->pRight == nullptr)
+	tmp.push_back(root->val);
+	if (root->left == nullptr && root->right == nullptr)
 	{
 		res.push_back(tmp);
 	}
-	help(root->pLeft, res, tmp);
-	help(root->pRight, res, tmp);
+	help(root->left, res, tmp);
+	help(root->right, res, tmp);
 	tmp.erase(tmp.begin + tmp.size() - 1);
 }
 
@@ -68,14 +68,14 @@ void CSolution::help(TreeNode* root, vector<string>&res, string tmp)
 		return;
 	}
 	char szbuf[10] = { 0 };
-	itoa(root->_value, szbuf,10);
+	itoa(root->val, szbuf,10);
 	tmp += szbuf;
-	if (root->pLeft == nullptr && root->pRight == nullptr)
+	if (root->left == nullptr && root->right == nullptr)
 	{
 		res.push_back(tmp);
 	}
 	tmp += "->";
-	help(root->pRight, res, tmp);
-	help(root->pLeft, res, tmp);
+	help(root->right, res, tmp);
+	help(root->left, res, tmp);
 }
 

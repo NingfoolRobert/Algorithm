@@ -21,7 +21,7 @@ bool CSolution::isSymmetric(TreeNode* root)
 {
 	if (root == nullptr)
 		return false;
-	return Symmetric(root->pRight, root->pLeft);
+	return Symmetric(root->right, root->left);
 }
 
 bool CSolution::Symmetric(TreeNode* left, TreeNode* right)
@@ -30,6 +30,6 @@ bool CSolution::Symmetric(TreeNode* left, TreeNode* right)
 		return true;
 	else if (left == nullptr || right == nullptr)
 		return false;
-	return (left->_value == right->_value) && Symmetric(left->pLeft, right->pRight) && Symmetric(left->pRight, right->pLeft);
+	return (left->val == right->val) && Symmetric(left->left, right->right) && Symmetric(left->right, right->left);
 }
 

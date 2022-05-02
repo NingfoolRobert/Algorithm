@@ -39,8 +39,8 @@ void CSolution::help(TreeNode* root, int nlevel, std::vector<int>& res)
 	if (nullptr == root)
 		return;
 	if (res.size() == nlevel)
-		res.push_back(root->_value);
-	help(root->pRight, nlevel + 1, res);
-	help(root->pLeft, nlevel + 1, res);
+		res.push_back(root->val);
+	help(root->right, nlevel + 1, res);
+	help(root->left, nlevel + 1, res);
 }
 
