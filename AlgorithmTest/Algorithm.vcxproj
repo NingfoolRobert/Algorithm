@@ -112,6 +112,7 @@
     <ClInclude Include="76-MinWindows.h" />
     <ClInclude Include="92-findKthLargest.h" />
     <ClInclude Include="93-restoreIpAddresses.h" />
+    <ClInclude Include="937-reorderLogFiles.h" />
     <ClInclude Include="98-IsValidBST.h" />
     <ClInclude Include="BinarySearch.h" />
     <ClInclude Include="byte.h" />
