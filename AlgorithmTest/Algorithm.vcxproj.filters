@@ -210,6 +210,12 @@
     <ClInclude Include="937-reorderLogFiles.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="math.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LRU.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

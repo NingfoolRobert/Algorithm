@@ -127,6 +127,8 @@
     <ClInclude Include="ListFunc.h" />
     <ClInclude Include="ListNode.h" />
     <ClInclude Include="LongestChildSuqence.h" />
+    <ClInclude Include="LRU.h" />
+    <ClInclude Include="math.h" />
     <ClInclude Include="MinCutPalindrome.h" />
     <ClInclude Include="morris_Inorder.h" />
     <ClInclude Include="MutilVCA.h" />

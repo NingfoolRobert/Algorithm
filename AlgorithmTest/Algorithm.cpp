@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "PaperMoneyChange.h"
+//#include "PaperMoneyChange.h"
 //#include "07-Reverse.h"
 //#include "98-IsValidBST.h"
 /*#include "06-ZConvert.h"*/
@@ -18,37 +18,71 @@
 
 //#include "14-longestCommonPrefix.h"
 //#include "15-threeSum.h"
+// 
+// #include "20-ValidSymbol.h"
+// 
+// 
+// void func()
+// {
+// 	static int val;
+// }
+// int Add_n(int n)
+// {
+// 	static int i = 100;
+// 	i += n;
+// 	return i;
+// }
 
-#include "20-ValidSymbol.h"
+// class A
+// {
+// public: 
+// 	A(void) { printf("constuctor A ]\n"); }
+// protected:
+// 	virtual ~A(void) { printf("Deconstructor A \n"); }
+// 
+// private:
+// 	int m_nval;
+// };
 
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include "math.h"
+#include "LRU.h"
+using namespace  std;
 
-void func()
-{
-	static int val;
+int ArrayChallenge(int arr[], int arrLength) {
+
+	// code goes here  
+	vector<int> dp(arrLength, INT_MIN);
+	int res = INT_MIN;
+	for (auto i = 0; i < arrLength - 1; ++i)
+	{
+		dp[i] = INT_MIN;
+		for (auto j = i + 1; j < arrLength; ++j)
+		{
+			dp[i] = max(dp[i], arr[j] - arr[i]);
+			
+		}
+		cout << dp[i] << " ";
+		res = max(res, dp[i]);
+	}
+	return res;
 }
-int Add_n(int n)
-{
-	static int i = 100;
-	i += n;
-	return i;
-}
-
-class A
-{
-public: 
-	A(void) { printf("constuctor A ]\n"); }
-protected:
-	virtual ~A(void) { printf("Deconstructor A \n"); }
-
-private:
-	int m_nval;
-};
-
-
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	string str[] = { "A", "B", "A", "C", "A", "B" };
+	
+	string res = ArrayChallenge(str, 6);
 
+//	int arr[] = { 10,12,4,5,9 };
+	//int res = ArrayChallenge(arr, 5);
+	
+// 	string str = { "4 - 2 = x" };
+// 	std::string res = MathChallenge(str);
+// 
+ 	system("pause");
 // 	int nTest = Add_n(10);
 // 	std::cout << nTest << std::endl;
 // 	nTest = Add_n(10);
@@ -88,11 +122,11 @@ int _tmain(int argc, _TCHAR* argv[])
 // 	CThreeSum thre;
 // 	thre.TestThreeSum_0();
 
-	C20Solution so;
-	bool bRet = so.isValid("()[]{}");
-	printf("%d\n", bRet);
+// 	C20Solution so;
+// 	bool bRet = so.isValid("()[]{}");
+// 	printf("%d\n", bRet);
 
-	system("pause");
+//
 
 	return 0;
 }
