@@ -47,34 +47,39 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
-#include "math.h"
-#include "LRU.h"
+//#include "math.h"
+//#include "LRU.h"
+#include "largestArea.h"
 using namespace  std;
 
-int ArrayChallenge(int arr[], int arrLength) {
-
-	// code goes here  
-	vector<int> dp(arrLength, INT_MIN);
-	int res = INT_MIN;
-	for (auto i = 0; i < arrLength - 1; ++i)
-	{
-		dp[i] = INT_MIN;
-		for (auto j = i + 1; j < arrLength; ++j)
-		{
-			dp[i] = max(dp[i], arr[j] - arr[i]);
-			
-		}
-		cout << dp[i] << " ";
-		res = max(res, dp[i]);
-	}
-	return res;
-}
+// int ArrayChallenge(int arr[], int arrLength) {
+// 
+// 	// code goes here  
+// 	vector<int> dp(arrLength, INT_MIN);
+// 	int res = INT_MIN;
+// 	for (auto i = 0; i < arrLength - 1; ++i)
+// 	{
+// 		dp[i] = INT_MIN;
+// 		for (auto j = i + 1; j < arrLength; ++j)
+// 		{
+// 			dp[i] = max(dp[i], arr[j] - arr[i]);
+// 			
+// 		}
+// 		cout << dp[i] << " ";
+// 		res = max(res, dp[i]);
+// 	}
+// 	return res;
+// }
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	string str[] = { "A", "B", "A", "C", "A", "B" };
+	//string str[] = { "A", "B", "A", "C", "A", "B" };
 	
-	string res = ArrayChallenge(str, 6);
+	//string res = MathChallenge("4 - 2 = x");
+	int arr[] = { 6, 3, 1, 4, 12, 4 };
+	
+	int area = ArrayChallenge(arr, 6);
+	//string res = ArrayChallenge(str, 6);
 
 //	int arr[] = { 10,12,4,5,9 };
 	//int res = ArrayChallenge(arr, 5);

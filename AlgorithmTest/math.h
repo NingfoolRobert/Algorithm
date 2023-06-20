@@ -88,11 +88,11 @@ std::string match(std::string dst, std::string src)
 		return "";
 	
 	int left = 0; 
-	int right = src.length() - 1;
-	for (; left < right && src.at(left) != 'x'; ++left);
-	for (; right > left && src.at(right) != 'x'; --right);
+	int right = dst.length() - 1;
+	//for (; left < right && src.at(left) != 'x'; ++left);
+	for (; right > pos && dst.at(right) != 'x'; --right);
 
-	return src.substr(left, right - left + 1);
+	return src.substr(pos, right - pos + 1);
 	
 }
 
@@ -126,8 +126,8 @@ string MathChallenge(string str) {
 			res = desp(vecTmp[2], vecTmp[1 - ret]);
 		break;
 	case '/':
-		if (ret == 1)
-			res = multi(vecTmp[1], vecTmp[0]);
+		if (ret == 0)
+			res = multi(vecTmp[1], vecTmp[2]);
 		else
 			res = desp(vecTmp[0], vecTmp[3 - ret]);
 		break;

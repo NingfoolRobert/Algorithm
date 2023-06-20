@@ -124,6 +124,7 @@
     <ClInclude Include="fullPermutation.h" />
     <ClInclude Include="HeapTest.h" />
     <ClInclude Include="kruskal.h" />
+    <ClInclude Include="largestArea.h" />
     <ClInclude Include="ListFunc.h" />
     <ClInclude Include="ListNode.h" />
     <ClInclude Include="LongestChildSuqence.h" />
@@ -133,6 +134,7 @@
     <ClInclude Include="morris_Inorder.h" />
     <ClInclude Include="MutilVCA.h" />
     <ClInclude Include="Prim.h" />
+    <ClInclude Include="skiplist.h" />
     <ClInclude Include="SortAlgorithm.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StrFunc.h" />
@@ -146,6 +148,7 @@
     <ClCompile Include="BinarySearch.cpp" />
     <ClCompile Include="ListFunc.cpp" />
     <ClCompile Include="morris_Inorder.cpp" />
+    <ClCompile Include="skiplist.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

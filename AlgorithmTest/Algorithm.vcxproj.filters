@@ -216,6 +216,12 @@
     <ClInclude Include="LRU.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="largestArea.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="skiplist.h">
+      <Filter>List</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -235,6 +241,9 @@
     </ClCompile>
     <ClCompile Include="BinarySearch.cpp">
       <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="skiplist.cpp">
+      <Filter>List</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
