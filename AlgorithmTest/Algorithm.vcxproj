@@ -89,6 +89,7 @@
     <ClInclude Include="07-Reverse.h" />
     <ClInclude Include="08-isPalindrome.h" />
     <ClInclude Include="100-isSameTree.h" />
+    <ClInclude Include="10000-joinQuant.h" />
     <ClInclude Include="101-isSymmetric.h" />
     <ClInclude Include="11-maxArea.h" />
     <ClInclude Include="112-hasPathSum.h" />

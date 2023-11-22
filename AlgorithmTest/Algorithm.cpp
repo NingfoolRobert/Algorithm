@@ -49,7 +49,11 @@
 #include <algorithm>
 //#include "math.h"
 //#include "LRU.h"
-#include "largestArea.h"
+/*#include "largestArea.h"*/
+
+
+#include "10000-joinQuant.h"
+
 using namespace  std;
 
 // int ArrayChallenge(int arr[], int arrLength) {
@@ -76,9 +80,17 @@ int _tmain(int argc, _TCHAR* argv[])
 	//string str[] = { "A", "B", "A", "C", "A", "B" };
 	
 	//string res = MathChallenge("4 - 2 = x");
-	int arr[] = { 6, 3, 1, 4, 12, 4 };
+//	int arr[] = { 6, 3, 1, 4, 12, 4 };
+
+	//int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int arr[] = { 3,6,7,1,8,9 };
+
+	SolutionJoinQuant1 t;
+	int m = t.MinShipWithDays(arr,6, 4);
 	
-	int area = ArrayChallenge(arr, 6);
+	std::cout << m << std::endl;
+	
+/*	int area = ArrayChallenge(arr, 6);*/
 	//string res = ArrayChallenge(str, 6);
 
 //	int arr[] = { 10,12,4,5,9 };

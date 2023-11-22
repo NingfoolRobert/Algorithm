@@ -105,7 +105,8 @@ int Solution::BinarySearchLeft(std::vector<int>Array, int nval)
 		else
 			nLeft = nMid - 1;
 	}
-	if (nLeft < Array.size() -1 && Array[nLeft] == nval)
+
+	if (nLeft < Array.size() - 1 && Array[nLeft] == nval)
 	{
 		return nLeft;
 	}
