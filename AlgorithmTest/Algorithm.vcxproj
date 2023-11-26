@@ -99,6 +99,7 @@
     <ClInclude Include="1305-getAllElmentSorted.h" />
     <ClInclude Include="14-longestCommonPrefix.h" />
     <ClInclude Include="146-LRUCache.h" />
+    <ClInclude Include="1461-LFUCache.h" />
     <ClInclude Include="15-threeSum.h" />
     <ClInclude Include="16-letterCombinations.h" />
     <ClInclude Include="199-rightSideView.h" />
