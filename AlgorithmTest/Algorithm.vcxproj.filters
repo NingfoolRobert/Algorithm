@@ -225,6 +225,12 @@
     <ClInclude Include="10000-joinQuant.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="1461-LFUCache.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="828-UniqueLetterString.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
