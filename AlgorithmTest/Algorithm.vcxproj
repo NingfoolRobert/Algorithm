@@ -95,6 +95,7 @@
     <ClInclude Include="112-hasPathSum.h" />
     <ClInclude Include="114-flatten.h" />
     <ClInclude Include="12-IntToRoman.h" />
+    <ClInclude Include="121-maxProfit.h" />
     <ClInclude Include="128-longestConsecutive.h" />
     <ClInclude Include="1305-getAllElmentSorted.h" />
     <ClInclude Include="14-longestCommonPrefix.h" />

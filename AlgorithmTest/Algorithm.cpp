@@ -53,6 +53,7 @@
 
 
 #include "10000-joinQuant.h"
+#include "121-maxProfit.h"
 
 using namespace  std;
 
@@ -81,6 +82,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	
 	//string res = MathChallenge("4 - 2 = x");
 //	int arr[] = { 6, 3, 1, 4, 12, 4 };
+
+	SolutionMaxProfit s;
+	s.test();
 
 	//int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
 	int arr[] = { 3,6,7,1,8,9 };

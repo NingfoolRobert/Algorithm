@@ -231,6 +231,9 @@
     <ClInclude Include="828-UniqueLetterString.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="121-maxProfit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
