@@ -65,12 +65,12 @@ bool CSolution::hasPathSum_stack(TreeNode* root, int sum)
 	{
 		auto p = stNode.top();
 		stNode.pop();
-		if (p.first->pLeft == nullptr && p.first->pRight == nullptr && sum == 0)
+		if (p.first->left == nullptr && p.first->right == nullptr && sum == 0)
 			return true;
 		if (sum == 0)
 			return true;
-		stNode.push(make_pair(p.first->pLeft, sum - p.first->pRight->_value));
-		stNode.push(make_pair(p.first->pRight, sum - p.first->pRight->_value));
+		stNode.push(make_pair(p.first->left, sum - p.first->right->val));
+		stNode.push(make_pair(p.first->right, sum - p.first->right->val));
 	}
 	return false;
 }
