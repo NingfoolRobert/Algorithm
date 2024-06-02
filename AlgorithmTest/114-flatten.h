@@ -34,25 +34,20 @@ CSolution::~CSolution()
 
 //将二叉树展开为列表
 void CSolution::flatten(TreeNode* root)
-{
-	if (nullptr == root)
-		return;
-	
+{	
 	while (root)
 	{
-		if (root->left == nullptr)
-			root = root->right;
-
-
-		//find right leaf node 
-		TreeNode* pre = root->left;
-		while (pre) {
-			pre = pre->right;
+		if (root->left) {
+			//find right leaf node 
+			TreeNode* pre = root->left;
+			while (pre) {
+				pre = pre->right;
+			}
+			// 
+			pre->right = root->right;
+			root->right = root->left;
+			root->left = nullptr;
 		}
-		// 
-		pre->right = root->right;
-		root->right = root->left;
-		root->left = nullptr;
 		//
 		root = root->right;
 	}

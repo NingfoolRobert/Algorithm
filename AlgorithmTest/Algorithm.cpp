@@ -54,6 +54,9 @@
 
 #include "10000-joinQuant.h"
 #include "121-maxProfit.h"
+#include "119-longestConsecutive.h"
+
+#include <assert.h>
 
 using namespace  std;
 
@@ -103,7 +106,7 @@ int _tmain(int argc, _TCHAR* argv[])
 // 	string str = { "4 - 2 = x" };
 // 	std::string res = MathChallenge(str);
 // 
- 	system("pause");
+ 
 // 	int nTest = Add_n(10);
 // 	std::cout << nTest << std::endl;
 // 	nTest = Add_n(10);
@@ -149,6 +152,9 @@ int _tmain(int argc, _TCHAR* argv[])
 
 //
 
+	Solution119 s119;
+	assert(s119.Test());
+	system("pause");
 	return 0;
 }
 
